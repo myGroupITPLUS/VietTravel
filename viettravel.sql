@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2020 at 01:11 PM
+-- Generation Time: Nov 23, 2020 at 01:47 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -100,15 +100,17 @@ INSERT INTO `tour` (`matour`, `macategory`, `mauudai`, `diemdi`, `diemden`, `tho
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `password` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `quyen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `quyen`) VALUES
+(1, 'admin', 'admin', 1),
+(2, 'user', 'user', 0);
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,7 @@ ALTER TABLE `tour`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `uudai`
