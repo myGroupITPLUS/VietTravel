@@ -1,4 +1,4 @@
-package com.viettravelapp;
+package com.viettravelapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
