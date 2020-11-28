@@ -36,7 +36,26 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/demoSlide"></ImageView>
+                android:src="@drawable/demo"></ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:weightSum="10"
+            android:paddingLeft="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:background="@drawable/border"
+                android:hint="Search"
+                android:paddingLeft="10dp"></EditText>
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/search"></Button>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,7 +97,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="106dp"
+                android:layout_height="69dp"
                 android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <LinearLayout
@@ -102,7 +121,75 @@
                 android:layout_height="111dp"
                 android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/home"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"></ImageView>
+                <TextView
+                    android:text="Trang chủ"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/uudai"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"></ImageView>
+                <TextView
+                    android:text="Ưu đãi"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/noti"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"></ImageView>
+                <TextView
+                    android:text="Thông báo"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/note"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"></ImageView>
+                <TextView
+                    android:text="Cẩm nang"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
