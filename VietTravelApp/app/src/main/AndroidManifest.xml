@@ -19,7 +19,7 @@
 <!--         </intent-filter> -->
 <!--         </activity> -->
 <!--        <activity android:name=".RegisterActivity" />-->
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.UuDaiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
