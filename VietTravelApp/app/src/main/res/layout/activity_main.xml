@@ -34,6 +34,7 @@
             android:layout_gravity="center">
 <!--            Sẽ thay bằng slide-->
             <ImageView
+                android:background="@drawable/btn_bg2"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:src="@drawable/demo"></ImageView>
