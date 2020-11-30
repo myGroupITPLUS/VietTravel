@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:weightSum="10"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_weight="7"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtvTenTour"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:hint="Tên Tour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtvDiemDi"
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Điểm đi"
+            android:textColor="#05F65D"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/txtvDiemDen"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Điểm đến"
+            android:textColor="#05F65D"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="3"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/tourEdit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edit"
+                android:paddingLeft="10dp"></ImageView>
+
+            <ImageView
+                android:id="@+id/tourDelete"
+                android:layout_width="40dp"
+                android:paddingRight="5dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/delete"></ImageView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
