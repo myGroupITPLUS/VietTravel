@@ -1,14 +1,16 @@
 package com.viettravelapplication.Model;
 
-public class Category {
+public class Banner {
     private int id;
-    private String categoryname;
+    private String name;
     private String descriptions;
+    private String url;
     private String images;
 
-    public Category(String categoryname, String descriptions, String images) {
-        this.categoryname = categoryname;
+    public Banner(String name, String descriptions, String url, String images) {
+        this.name = name;
         this.descriptions = descriptions;
+        this.url = url;
         this.images = images;
     }
 
@@ -20,12 +22,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategoryname() {
-        return categoryname;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescriptions() {
@@ -34,6 +36,14 @@ public class Category {
 
     public void setDescriptions(String descriptions) {
         this.descriptions = descriptions;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getImages() {
@@ -46,10 +56,11 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Banner{" +
                 "id=" + id +
-                ", categoryname='" + categoryname + '\'' +
+                ", name='" + name + '\'' +
                 ", descriptions='" + descriptions + '\'' +
+                ", url='" + url + '\'' +
                 ", images='" + images + '\'' +
                 '}';
     }

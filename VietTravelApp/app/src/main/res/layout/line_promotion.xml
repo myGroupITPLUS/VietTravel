@@ -7,7 +7,7 @@
     android:layout_height="200dp">
 
     <ImageView
-        android:id="@+id/imgCategory"
+        android:id="@+id/imgTour"
         android:src="@mipmap/ic_launcher"
         android:layout_width="220dp"
         android:layout_height="130dp" />

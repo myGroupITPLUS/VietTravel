@@ -17,15 +17,18 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:text="VietTravel chào bạn,\nKế hoạch hôm nay của bạn là gì?"
                 android:textColor="@color/white"></TextView>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="10dp"
                 android:text="Login"></Button>
         </LinearLayout>
         <LinearLayout
@@ -33,20 +36,26 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 <!--            Sẽ thay bằng slide-->
-            <ImageView
-                android:background="@drawable/btn_bg2"
+<!--            <ImageView-->
+<!--                android:background="@drawable/btn_bg2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="250dp"-->
+<!--                android:src="@drawable/demo"></ImageView>-->
+            <AdapterViewFlipper
+                android:background="@drawable/bg_viewflipper"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/demo"></ImageView>
+                ></AdapterViewFlipper>
         </LinearLayout>
         <LinearLayout
+            android:paddingTop="10dp"
             android:weightSum="10"
             android:paddingLeft="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/edtSearch"
-                android:layout_width="0px"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:background="@drawable/border"
@@ -56,10 +65,12 @@
                 android:id="@+id/btnSearch"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/search"></Button>
+                android:background="@drawable/search"
+                android:layout_gravity="right"></Button>
         </LinearLayout>
 
         <LinearLayout
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -76,6 +87,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvUudai"
                 android:layout_width="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
                 android:layout_height="58dp"
                 android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
@@ -83,6 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints"
+            android:paddingTop="10dp"
             android:background="@color/blue"
             android:orientation="vertical">
             <TextView
@@ -98,7 +112,10 @@
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
+                android:paddingLeft="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                ></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,12 +135,15 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMien"
                 android:layout_width="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
                 android:layout_height="60dp"
                 android:paddingLeft="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_gravity="bottom"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout

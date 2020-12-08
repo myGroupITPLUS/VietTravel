@@ -19,12 +19,12 @@ import com.viettravelapplication.R;
 
 import java.util.List;
 
-public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
+public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.ViewHolder> {
     Context context;
     int layout;
     List<Tour> list;
 
-    public TourAdapter(Context context, int layout, List<Tour> list){
+    public PromotionAdapter(Context context, int layout, List<Tour> list){
         this.context = context;
         this.layout = layout;
         this.list = list;
@@ -53,25 +53,27 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Tour tour = list.get(position);
+       Tour tour = list.get(position);
         Picasso.get().load(tour.getImages())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
-                .into(holder.imageTour);
+                .into(holder.imgTour);
         holder.tvNameTour.setText(tour.getNametour());
+        holder.tvPromotion.setText("Mã giảm giá: "+tour.getPromotionid());
         holder.tvPrice.setText((int) tour.getPrice());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageTour;
+        ImageView imgTour;
         TextView tvNameTour;
         TextView tvPromotion;
         TextView tvPrice;
         public ViewHolder(View itemView) {
             super(itemView);
-            imageTour = itemView.findViewById(R.id.imageTour);
-            tvNameTour = itemView.findViewById(R.id.tvNameTour);
-            tvPrice = itemView.findViewById(R.id.tvGia);
+            imgTour = itemView.findViewById(R.id.imgTour);
+            tvNameTour = itemView.findViewById(R.id.txtvNameTour);
+            tvPromotion = itemView.findViewById(R.id.txtvUuDai);
+            tvPrice = itemView.findViewById(R.id.txtvGia);
         }
     }
 }

@@ -1,54 +1,61 @@
 package com.viettravelapplication.Model;
 
-import java.util.Date;
-
-public class Tour {
-    private int matour;
-    private int macategory;
-    private  int mauudai;
+public class Tour{
+    private int id;
+    private int categoryid;
+    private int promotionid;
+    private String nametour;
     private String diemdi;
     private String diemden;
-    private Date thoigiandi;
-    private Date thoigianve;
-    private String mota;
-    private String anh;
-    private int gia;
+    private String timedi;
+    private String timeve;
+    private String descriptions;
+    private String images;
+    private float price;
 
-    public Tour(int macategory, int mauudai, String diemdi, String diemden, Date thoigiandi, Date thoigianve, String mota, String anh, int gia) {
-//        this.matour = matour;
-        this.macategory = macategory;
-        this.mauudai = mauudai;
+    public Tour(int categoryid, int promotionid, String nametour, String diemdi, String diemden, String timedi, String timeve, String descriptions, String images, float price) {
+        this.categoryid = categoryid;
+        this.promotionid = promotionid;
+        this.nametour = nametour;
         this.diemdi = diemdi;
         this.diemden = diemden;
-        this.thoigiandi = thoigiandi;
-        this.thoigianve = thoigianve;
-        this.mota = mota;
-        this.anh = anh;
-        this.gia = gia;
+        this.timedi = timedi;
+        this.timeve = timeve;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.price = price;
     }
 
-    public int getMatour() {
-        return matour;
+    public int getId() {
+        return id;
     }
 
-    public void setMatour(int matour) {
-        this.matour = matour;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getMacategory() {
-        return macategory;
+    public int getCategoryid() {
+        return categoryid;
     }
 
-    public void setMacategory(int macategory) {
-        this.macategory = macategory;
+    public void setCategoryid(int categoryid) {
+        this.categoryid = categoryid;
     }
 
-    public int getMauudai() {
-        return mauudai;
+    public int getPromotionid() {
+        return promotionid;
     }
 
-    public void setMauudai(int mauudai) {
-        this.mauudai = mauudai;
+    public void setPromotionid(int promotionid) {
+        this.promotionid = promotionid;
+    }
+
+    public String getNametour() {
+        return nametour;
+    }
+
+    public void setNametour(String nametour) {
+        this.nametour = nametour;
     }
 
     public String getDiemdi() {
@@ -67,59 +74,60 @@ public class Tour {
         this.diemden = diemden;
     }
 
-    public Date getThoigiandi() {
-        return thoigiandi;
+    public String getTimedi() {
+        return timedi;
     }
 
-    public void setThoigiandi(Date thoigiandi) {
-        this.thoigiandi = thoigiandi;
+    public void setTimedi(String timedi) {
+        this.timedi = timedi;
     }
 
-    public Date getThoigianve() {
-        return thoigianve;
+    public String getTimeve() {
+        return timeve;
     }
 
-    public void setThoigianve(Date thoigianve) {
-        this.thoigianve = thoigianve;
+    public void setTimeve(String timeve) {
+        this.timeve = timeve;
     }
 
-    public String getMota() {
-        return mota;
+    public String getDescriptions() {
+        return descriptions;
     }
 
-    public void setMota(String mota) {
-        this.mota = mota;
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
     }
 
-    public String getAnh() {
-        return anh;
+    public String getImages() {
+        return images;
     }
 
-    public void setAnh(String anh) {
-        this.anh = anh;
+    public void setImages(String images) {
+        this.images = images;
     }
 
-    public int getGia() {
-        return gia;
+    public float getPrice() {
+        return price;
     }
 
-    public void setGia(int gia) {
-        this.gia = gia;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
         return "Tour{" +
-                "matour=" + matour +
-                ", macategory=" + macategory +
-                ", mauudai=" + mauudai +
+                "id=" + id +
+                ", categoryid=" + categoryid +
+                ", promotionid=" + promotionid +
+                ", nametour='" + nametour + '\'' +
                 ", diemdi='" + diemdi + '\'' +
                 ", diemden='" + diemden + '\'' +
-                ", thoigiandi=" + thoigiandi +
-                ", thoigianve=" + thoigianve +
-                ", mota='" + mota + '\'' +
-                ", anh='" + anh + '\'' +
-                ", gia=" + gia +
+                ", timedi='" + timedi + '\'' +
+                ", timeve='" + timeve + '\'' +
+                ", descriptions='" + descriptions + '\'' +
+                ", images='" + images + '\'' +
+                ", price=" + price +
                 '}';
     }
 }

@@ -12,19 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-
-import com.viettravelapplication.Model.Promotion;
-import com.viettravelapplication.Model.Tour;
+import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.R;
 
 import java.util.List;
 
-public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     Context context;
     int layout;
-    List<Tour> list;
+    List<Category> list;
 
-    public TourAdapter(Context context, int layout, List<Tour> list){
+    public CategoryAdapter(Context context, int layout, List<Category> list){
         this.context = context;
         this.layout = layout;
         this.list = list;
@@ -53,25 +51,21 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Tour tour = list.get(position);
-        Picasso.get().load(tour.getImages())
+        Category category = list.get(position);
+        Picasso.get().load(category.getImages())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
-                .into(holder.imageTour);
-        holder.tvNameTour.setText(tour.getNametour());
-        holder.tvPrice.setText((int) tour.getPrice());
+                .into(holder.imgCategory);
+        holder.tvCateName.setText(category.getCategoryname());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageTour;
-        TextView tvNameTour;
-        TextView tvPromotion;
-        TextView tvPrice;
+        ImageView imgCategory;
+        TextView tvCateName;
         public ViewHolder(View itemView) {
             super(itemView);
-            imageTour = itemView.findViewById(R.id.imageTour);
-            tvNameTour = itemView.findViewById(R.id.tvNameTour);
-            tvPrice = itemView.findViewById(R.id.tvGia);
+            imgCategory = itemView.findViewById(R.id.imgCategory);
+            tvCateName = itemView.findViewById(R.id.tvCateName);
         }
     }
 }

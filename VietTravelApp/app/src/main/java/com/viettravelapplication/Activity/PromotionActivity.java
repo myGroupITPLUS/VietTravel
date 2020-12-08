@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.viettravelapplication.R;
 
-public class UuDaiActivity extends AppCompatActivity {
+public class PromotionActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uudai);
+        setContentView(R.layout.list_promotion);
     }
 }

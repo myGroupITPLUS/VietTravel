@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="120dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:layout_height="150dp">
+    android:layout_width="170dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:layout_height="180dp">
     <ImageView
         android:id="@+id/imgCategory"
         android:src="@mipmap/ic_launcher"
-        android:layout_width="100dp"
-        android:layout_height="120dp"></ImageView>
+        android:layout_width="160dp"
+        android:layout_height="180dp"></ImageView>
     <TextView
-        android:id="@+id/txtvCate"
+        android:id="@+id/tvCateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -18,6 +19,6 @@
         android:layout_marginLeft="10dp"
         android:text="Tên Thành Phố"
         android:textColor="@color/red"
-        android:textSize="10dp"
+        android:textSize="15dp"
         android:textStyle="bold"></TextView>
 </FrameLayout>
