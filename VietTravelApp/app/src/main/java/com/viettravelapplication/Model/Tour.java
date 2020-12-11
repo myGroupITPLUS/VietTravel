@@ -11,9 +11,23 @@ public class Tour{
     private String timeve;
     private String descriptions;
     private String images;
-    private float price;
+    private double price;
 
     public Tour(int categoryid, int promotionid, String nametour, String diemdi, String diemden, String timedi, String timeve, String descriptions, String images, float price) {
+        this.categoryid = categoryid;
+        this.promotionid = promotionid;
+        this.nametour = nametour;
+        this.diemdi = diemdi;
+        this.diemden = diemden;
+        this.timedi = timedi;
+        this.timeve = timeve;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.price = price;
+    }
+
+    public Tour(int id, int categoryid, int promotionid, String nametour, String diemdi, String diemden, String timedi, String timeve, String descriptions, String images, float price) {
+        this.id = id;
         this.categoryid = categoryid;
         this.promotionid = promotionid;
         this.nametour = nametour;
@@ -106,7 +120,7 @@ public class Tour{
         this.images = images;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 

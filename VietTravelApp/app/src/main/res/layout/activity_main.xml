@@ -25,6 +25,7 @@
                 android:textColor="@color/white"></TextView>
 
             <Button
+                android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -133,7 +134,7 @@
                 ></TextView>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvMien"
+                android:id="@+id/rvTour"
                 android:layout_width="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
@@ -147,6 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
+                android:id="@+id/home"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -163,6 +165,7 @@
                     android:layout_height="wrap_content"></TextView>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/uudai"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -181,6 +184,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:gravity="center"
+                android:id="@+id/gioithieu"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -198,6 +202,7 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_weight="1"
+                android:id="@+id/camnang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView

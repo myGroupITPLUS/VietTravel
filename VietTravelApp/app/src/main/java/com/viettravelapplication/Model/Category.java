@@ -6,6 +6,13 @@ public class Category {
     private String descriptions;
     private String images;
 
+    public Category(int id, String categoryname, String descriptions, String images) {
+        this.id = id;
+        this.categoryname = categoryname;
+        this.descriptions = descriptions;
+        this.images = images;
+    }
+
     public Category(String categoryname, String descriptions, String images) {
         this.categoryname = categoryname;
         this.descriptions = descriptions;
