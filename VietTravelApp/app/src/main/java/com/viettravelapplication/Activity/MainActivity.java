@@ -59,19 +59,19 @@ public class MainActivity extends AppCompatActivity {
         rvTour.setAdapter(tourAdapter);
         rvTour.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
 
-        //Do du lieu ra phan uu dai
-        promotionList = new ArrayList<>();
-        tourAdapter = new TourAdapter(MainActivity.this, R.layout.line_promotion, promotionList);
-        getAllPromotion();
-        rvPromotion.setAdapter(promotionAdapter);
-        rvPromotion.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
+//        //Do du lieu ra phan uu dai
+//        promotionList = new ArrayList<>();
+//        tourAdapter = new TourAdapter(MainActivity.this, R.layout.line_promotion, promotionList);
+//        getAllPromotion();
+//        rvPromotion.setAdapter(promotionAdapter);
+//        rvPromotion.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
 
-        //do du lieu ra phan category - theo dia chi noi den
-        listCategory = new ArrayList<>();
-        categoryAdapter = new CategoryAdapter(MainActivity.this, R.layout.line_category, listCategory);
-        getAllCategory();
-        rvCategory.setAdapter(categoryAdapter);
-        rvCategory.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
+//        //do du lieu ra phan category - theo dia chi noi den
+//        listCategory = new ArrayList<>();
+//        categoryAdapter = new CategoryAdapter(MainActivity.this, R.layout.line_category, listCategory);
+//        getAllCategory();
+//        rvCategory.setAdapter(categoryAdapter);
+//        rvCategory.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
     }
     private void getAllPromotion(){
         String url = "#";
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void getAllTour() {
-        String url = "#";
+        String url = "http://54.169.31.141:8080/api/tour/";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
