@@ -65,7 +65,6 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageTour;
         TextView tvNameTour;
-        TextView tvPromotion;
         TextView tvPrice;
         public ViewHolder(View itemView) {
             super(itemView);
