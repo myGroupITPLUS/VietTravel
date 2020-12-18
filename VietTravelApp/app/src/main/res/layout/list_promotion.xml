@@ -30,10 +30,11 @@
         android:paddingLeft="20dp"
         android:textColor="@color/black"
         android:textSize="20dp"></TextView>
+
     <ListView
         android:id="@+id/lvUuDai"
-        android:paddingLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"></ListView>
 
 </LinearLayout>

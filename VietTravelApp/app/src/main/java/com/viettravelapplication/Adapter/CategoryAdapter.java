@@ -18,6 +18,7 @@ import com.viettravelapplication.R;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+
     Context context;
     int layout;
     List<Category> list;

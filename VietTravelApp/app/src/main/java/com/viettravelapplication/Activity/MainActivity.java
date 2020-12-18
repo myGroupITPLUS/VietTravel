@@ -20,12 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.viettravelapplication.Adapter.BannerAdapter;
 import com.viettravelapplication.Adapter.CategoryAdapter;
 import com.viettravelapplication.Adapter.PromotionAdapter;
 import com.viettravelapplication.Adapter.TourAdapter;
+import com.viettravelapplication.Model.Banner;
 import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,17 +38,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    DrawerLayout drawerLayout;
-    AdapterViewFlipper adapterViewFlipper;
+    AdapterViewFlipper bannerFlipper;
     RecyclerView rvCategory;
     RecyclerView rvPromotion;
     RecyclerView rvTour;
+    Button btnLogin;
+    EditText edtSearch;
+    Button btnSearch;
     List<Tour> promotionList;
     List<Tour> tourList;
     List<Category> listCategory;
+    List<Banner> bannerList;
     TourAdapter tourAdapter;
     CategoryAdapter categoryAdapter;
     PromotionAdapter promotionAdapter;
+    BannerAdapter bannerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,30 +60,21 @@ public class MainActivity extends AppCompatActivity {
         mapping();
         init();
         //Do du lieu ra phan Du lich khap chon
-        tourList = new ArrayList<>();
-        tourAdapter = new TourAdapter(MainActivity.this, R.layout.line_tour, tourList);
-        getAllTour();
-        rvTour.setAdapter(tourAdapter);
-        rvTour.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
-
 //        //Do du lieu ra phan uu dai
 //        promotionList = new ArrayList<>();
 //        tourAdapter = new TourAdapter(MainActivity.this, R.layout.line_promotion, promotionList);
 //        getAllPromotion();
 //        rvPromotion.setAdapter(promotionAdapter);
 //        rvPromotion.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
-
-//        //do du lieu ra phan category - theo dia chi noi den
-//        listCategory = new ArrayList<>();
-//        categoryAdapter = new CategoryAdapter(MainActivity.this, R.layout.line_category, listCategory);
-//        getAllCategory();
-//        rvCategory.setAdapter(categoryAdapter);
-//        rvCategory.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
+    }
+    private void init() {
+        initViewFlipper();
+        getAllTour();
+        getAllCategory();
     }
     private void getAllPromotion(){
-        String url = "#";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_PROMOTION, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 JSONObject jsonObject = response.getJSONObject(i);
                                 Tour tour = new Tour(jsonObject.getInt("id"), jsonObject.getInt("categoryID"), jsonObject.getInt("promotionid"), jsonObject.getString("name"), jsonObject.getString("diemdi"), jsonObject.getString("diemden"), jsonObject.getString("timedi"), jsonObject.getString("timeve"), jsonObject.getString("descriptions"), jsonObject.getString("images"), (float) jsonObject.getDouble("price"));
-                                Toast.makeText(MainActivity.this, ""+tour.toString(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(MainActivity.this, ""+tour.toString(), Toast.LENGTH_SHORT).show();
                                 tourList.add(tour);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -104,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void getAllTour() {
-        String url = "http://54.169.31.141:8080/api/tour/";
+        tourList = new ArrayList<>();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_TOUR, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -114,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++){
                             try {
                                 JSONObject jsonObject = response.getJSONObject(i);
-                                Tour tour = new Tour(jsonObject.getInt("id"), jsonObject.getInt("categoryID"), jsonObject.getInt("promotionid"), jsonObject.getString("name"), jsonObject.getString("diemdi"), jsonObject.getString("diemden"), jsonObject.getString("timedi"), jsonObject.getString("timeve"), jsonObject.getString("descriptions"), jsonObject.getString("images"), (float) jsonObject.getDouble("price"));
-                                Toast.makeText(MainActivity.this, ""+tour.toString(), Toast.LENGTH_SHORT).show();
+                                Tour tour = new Tour(jsonObject.getInt("id"), jsonObject.getInt("categoryid"), jsonObject.getInt("promotionid"), jsonObject.getString("name"), jsonObject.getString("diemdi"), jsonObject.getString("diemden"), jsonObject.getString("timedi"), jsonObject.getString("timeve"), jsonObject.getString("descriptions"), jsonObject.getString("images"), (float) jsonObject.getDouble("price"));
+                                //Toast.makeText(MainActivity.this, ""+tour.toString(), Toast.LENGTH_SHORT).show();
                                 tourList.add(tour);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -131,11 +129,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         requestQueue.add(arrayRequest);
+        tourAdapter = new TourAdapter(MainActivity.this, R.layout.line_tour, tourList);
+        rvTour.setAdapter(tourAdapter);
+        rvTour.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
     }
     private void getAllCategory() {
-        String url = "http://54.169.31.141:8080/api/category/";
+        listCategory = new ArrayList<>();
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_CATEGORY, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -143,8 +144,8 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++){
                             try {
                                 JSONObject jsonObject = response.getJSONObject(i);
-                                Category category = new Category(jsonObject.getInt("id"), jsonObject.getString("categoryName"), jsonObject.getString("descriptions"), jsonObject.getString("images"));
-                                Toast.makeText(MainActivity.this, ""+category.toString(), Toast.LENGTH_SHORT).show();
+                                Category category = new Category(jsonObject.getInt("id"), jsonObject.getString("categoryname"), jsonObject.getString("descriptions"), jsonObject.getString("images"));
+                                //Toast.makeText(MainActivity.this, ""+category.toString(), Toast.LENGTH_SHORT).show();
                                 listCategory.add(category);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -160,32 +161,47 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         requestQueue.add(arrayRequest);
+        categoryAdapter = new CategoryAdapter(MainActivity.this, R.layout.line_category, listCategory);
+        rvCategory.setAdapter(categoryAdapter);
+        rvCategory.setLayoutManager( new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
     }
-    private void init() {
-        initViewFlipper();
+    private void getAllBanner() {
+        bannerList = new ArrayList<>();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET,StringUtil.API_GET_ALL_BANNER, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i=0;i<response.length();i++){
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                String id = jsonObject.getString("id");
+                                String name = jsonObject.getString("name");
+                                String descriptions = jsonObject.getString("descriptions");
+                                String url = jsonObject.getString("url");
+                                String img = jsonObject.getString("images");
+                                bannerList.add(new Banner(Integer.parseInt(id),name,descriptions,url,img));
+                                //Toast.makeText(MainActivity.this,""+new Banner(Integer.parseInt(id),name,descriptions,url,img).toString(),Toast.LENGTH_LONG).show();
+                            }
+                            bannerAdapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this,""+error,Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(arrayRequest);
+        bannerAdapter = new BannerAdapter(MainActivity.this,R.layout.banner_layout,bannerList);
     }
-
     private void initViewFlipper() {
-//        List<String> imageUrlList = new ArrayList<>();
-//        imageUrlList.add("https://cdn.cellphones.com.vn/media/ltsoft/promotioncategory/Banner-chung-595x100.png");
-//        imageUrlList.add("https://cdn.cellphones.com.vn/media/ltsoft/promotioncategory/595x100iPhone-12-v2.png");
-//        imageUrlList.add("https://cdn.cellphones.com.vn/media/ltsoft/promotioncategory/oppo_normal_sale_24.08.2020.png");
-//        imageUrlList.add("https://cdn.cellphones.com.vn/media/ltsoft/promotioncategory/Cate_595x100_2.png");
-//        imageUrlList.add("https://cdn.cellphones.com.vn/media/ltsoft/promotioncategory/normal_sale_nokia_24.08.2020.png");
-//
-//        ImageView imageView;
-//        for (int i = 0; i < imageUrlList.size(); i++) {
-//            imageView = new ImageView(this);
-//            Picasso.get().load(imageUrlList.get(i)).into(imageView);
-//            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-//            AdapterViewFlipper.addView(imageView);
-//            AdapterViewFlipper.setFlipInterval(3000);
-//            AdapterViewFlipper.setAutoStart(true);
-//        }
-//        Animation animationIn = AnimationUtils.loadAnimation(this, R.anim.anim_flipper_in);
-//        Animation animationOut =AnimationUtils.loadAnimation(this, R.anim.anim_filpper_out);
-//        AdapterViewFlipper.setInAnimation(animationIn);
-//        AdapterViewFlipper.setInAnimation(animationOut);
+        getAllBanner();
+        bannerFlipper.setAdapter(bannerAdapter);
+        bannerFlipper.setFlipInterval(3000);
+        bannerFlipper.setAutoStart(true);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -212,12 +228,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private void mapping(){
-        Button btnLogin = findViewById(R.id.btnLogin);
-        EditText edtSearch = findViewById(R.id.edtSearch);
-        Button btnSearch = findViewById(R.id.btnSearch);
-        RecyclerView rvUudai = findViewById(R.id.rvUudai);
-        RecyclerView rvCategory = findViewById(R.id.rvCategory);
-        RecyclerView rvTour = findViewById(R.id.rvTour);
+        btnLogin = findViewById(R.id.btnLogin);
+        edtSearch = findViewById(R.id.edtSearch);
+        btnSearch = findViewById(R.id.btnSearch);
+        rvPromotion = findViewById(R.id.rvUudai);
+        rvCategory = findViewById(R.id.rvCategory);
+        rvTour = findViewById(R.id.rvTour);
+        bannerFlipper = findViewById(R.id.bannerAdapter);
 
     }
 }

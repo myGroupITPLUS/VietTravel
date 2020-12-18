@@ -7,7 +7,8 @@ public class Banner {
     private String url;
     private String images;
 
-    public Banner(String name, String descriptions, String url, String images) {
+    public Banner(int id, String name, String descriptions, String url, String images) {
+        this.id = id;
         this.name = name;
         this.descriptions = descriptions;
         this.url = url;
