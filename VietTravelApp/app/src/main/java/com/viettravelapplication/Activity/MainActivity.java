@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(arrayRequest);
     }
     private void getAllCategory() {
-        String url = "#";
+        String url = "http://54.169.31.141:8080/api/category/";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
