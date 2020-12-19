@@ -17,8 +17,8 @@ import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
-
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     Context context;
     int layout;
@@ -59,7 +59,8 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                 .error(R.drawable.noimageicon)
                 .into(holder.imageTour);
         holder.tvNameTour.setText(tour.getNametour());
-        holder.tvPrice.setText((int) tour.getPrice());
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        holder.tvPrice.setText("Giá: "+decimalFormat.format(tour.getPrice())+" Đ");
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
