@@ -7,4 +7,5 @@ public class StringUtil {
     public static final String API_GET_ALL_TOUR = HOST+"api/tour/";
     public static final String API_GET_ALL_PROMOTION = HOST+"api/promotion/";
     public static final String API_GET_ALL_USER = HOST+"api/user/";
+    public static final String LOAD_IMAGES = HOST+"api/images/";
 }
