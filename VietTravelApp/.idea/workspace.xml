@@ -12,24 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b38056c3-2662-48c3-92b4-b365291422cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Adapter/BannerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/banner_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_account.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_camnag.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_promotion.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_bottom_nav.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Adapter/CategoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Adapter/CategoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Adapter/TourAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Adapter/TourAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Model/Banner.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/viettravelapplication/Model/Banner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_promotion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_promotion.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.36.101:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -52,6 +48,7 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -59,7 +56,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1lpMOZggkkMBvXx6rdQ2zgJJuEY" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -155,14 +152,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1608293976848" />
-    <state x="263" y="118" key="AndroidCreateResourceDirectoryDialog" timestamp="1608295284267">
+    <state x="263" y="118" key="AndroidCreateResourceDirectoryDialog" timestamp="1608551770058">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="118" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1608295284267" />
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1608290411598">
+    <state x="263" y="118" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1608551770058" />
+    <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1608551799291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1608290411598" />
+    <state x="263" y="118" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1608551799291" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1608290107505">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

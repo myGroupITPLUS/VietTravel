@@ -1,0 +1,16 @@
+Index: app/src/main/java/com/viettravelapplication/Util/StringUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.viettravelapplication.Util;\r\n\r\npublic class StringUtil {\r\n    public static final String HOST = \"http://54.169.31.141:8080/\";\r\n    public static final String API_GET_ALL_CATEGORY = HOST+\"api/category/\";\r\n    public static final String API_GET_ALL_BANNER = HOST+\"api/banner/\";\r\n    public static final String API_GET_ALL_TOUR = HOST+\"api/tour/\";\r\n    public static final String API_GET_ALL_PROMOTION = HOST+\"api/promotion/\";\r\n    public static final String API_GET_ALL_USER = HOST+\"api/user/\";\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/viettravelapplication/Util/StringUtil.java	(revision 033ecafb5223d077a122f479d0fc476f8c4e16db)
++++ app/src/main/java/com/viettravelapplication/Util/StringUtil.java	(date 1608551495624)
+@@ -7,4 +7,5 @@
+     public static final String API_GET_ALL_TOUR = HOST+"api/tour/";
+     public static final String API_GET_ALL_PROMOTION = HOST+"api/promotion/";
+     public static final String API_GET_ALL_USER = HOST+"api/user/";
++    public static final String URL_IMAGE = HOST+"api/images/";
+ }
+\ No newline at end of file
