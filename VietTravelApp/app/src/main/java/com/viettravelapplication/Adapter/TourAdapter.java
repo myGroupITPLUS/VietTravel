@@ -16,9 +16,11 @@ import com.squareup.picasso.Picasso;
 import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
 import java.text.DecimalFormat;
 import java.util.List;
+
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     Context context;
     int layout;
@@ -54,7 +56,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Tour tour = list.get(position);
-        Picasso.get().load(tour.getImages())
+        Picasso.get().load(StringUtil.LOAD_IMAGES+tour.getImages())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imageTour);

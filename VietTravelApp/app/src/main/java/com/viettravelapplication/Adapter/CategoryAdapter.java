@@ -14,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+
     Context context;
     int layout;
     List<Category> list;
@@ -52,7 +54,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Category category = list.get(position);
-        Picasso.get().load(category.getImages())
+        Picasso.get().load(StringUtil.LOAD_IMAGES+category.getImages())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imgCategory);
