@@ -4,15 +4,14 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical"
-    android:layout_height="200dp">
-
+    android:layout_height="180dp">
     <ImageView
         android:id="@+id/imgTour"
         android:src="@mipmap/ic_launcher"
         android:layout_width="220dp"
         android:layout_height="130dp" />
     <TextView
-        android:paddingTop="5dp"
+        android:paddingTop="2dp"
         android:id="@+id/txtvNameTour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +23,7 @@
         android:textSize="15dp"
         android:textStyle="bold"></TextView>
     <TextView
-        android:paddingTop="5dp"
+        android:paddingTop="2dp"
         android:id="@+id/txtvUuDai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
         android:textSize="10dp"
         android:textStyle="italic"></TextView>
     <TextView
-        android:paddingTop="5dp"
+        android:paddingTop="2dp"
         android:id="@+id/txtvGia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
