@@ -3,46 +3,19 @@ package com.viettravelapplication.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.AdapterViewFlipper;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.viettravelapplication.Adapter.BannerAdapter;
-import com.viettravelapplication.Adapter.CategoryAdapter;
-import com.viettravelapplication.Adapter.PromotionAdapter;
-import com.viettravelapplication.Adapter.TourAdapter;
-import com.viettravelapplication.Fragment.home;
-import com.viettravelapplication.Model.Banner;
-import com.viettravelapplication.Model.Category;
-import com.viettravelapplication.Model.Tour;
+import com.viettravelapplication.Fragment.AccFragment;
+import com.viettravelapplication.Fragment.HomeFragment;
+import com.viettravelapplication.Fragment.PromotionFragment;
+import com.viettravelapplication.Fragment.TipFragment;
 import com.viettravelapplication.R;
-import com.viettravelapplication.Util.StringUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView navigation;
@@ -58,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = getSupportActionBar();
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         toolbar.setTitle("Trang chủ");
-        loadFragment(new home());
+        loadFragment(new HomeFragment());
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,17 +41,23 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     toolbar.setTitle("Trang chủ");
-                    fragment = new home();
+                    fragment = new HomeFragment();
                     loadFragment(fragment);
                     return true;
                 case R.id.nav_promotion:
                     toolbar.setTitle("Ưu đãi");
+                    fragment = new PromotionFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.nav_camnang:
                     toolbar.setTitle("Cẩm nang");
+                    fragment = new TipFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.nav_account:
                     toolbar.setTitle("Tài khoản");
+                    fragment = new AccFragment();
+                    loadFragment(fragment);
                     return true;
             }
             return false;
