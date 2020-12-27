@@ -81,7 +81,22 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
                         android:id="@+id/txtvThoiGianDi"
-                        android:text="Thoi Gian Di - Thoi Gian Ve "
+                        android:text="Thoi Gian Di "
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:text=" - "
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/txtvThoiGianVe"
+                        android:text="Thoi Gian Ve "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -99,7 +114,22 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
                         android:id="@+id/txtvDiemDi"
-                        android:text="Diem Di - Diem Den "
+                        android:text="Diem Di"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:text=" - "
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/txtvDiemDen"
+                        android:text="Diem Den"
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
             </LinearLayout>

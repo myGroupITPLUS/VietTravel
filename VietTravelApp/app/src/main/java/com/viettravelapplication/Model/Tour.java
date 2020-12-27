@@ -40,6 +40,15 @@ public class Tour{
         this.price = price;
     }
 
+    public Tour(int id, String nametour, String diemdi, String diemden, String timedi, String timeve) {
+        this.id = id;
+        this.nametour = nametour;
+        this.diemdi = diemdi;
+        this.diemden = diemden;
+        this.timedi = timedi;
+        this.timeve = timeve;
+    }
+
     public int getId() {
         return id;
     }

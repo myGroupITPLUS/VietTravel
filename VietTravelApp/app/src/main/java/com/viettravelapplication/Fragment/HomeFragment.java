@@ -25,6 +25,7 @@ import com.viettravelapplication.Adapter.BannerAdapter;
 import com.viettravelapplication.Adapter.CategoryAdapter;
 import com.viettravelapplication.Adapter.PromotionAdapter;
 import com.viettravelapplication.Adapter.TourAdapter;
+import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Banner;
 import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.Model.Tour;
@@ -38,7 +39,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     AdapterViewFlipper bannerFlipper;
     RecyclerView rvCategory;
     RecyclerView rvPromotion;
@@ -54,6 +55,7 @@ public class HomeFragment extends Fragment {
     CategoryAdapter categoryAdapter;
     PromotionAdapter promotionAdapter;
     BannerAdapter bannerAdapter;
+    private ItemClickListener itemClickListener;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
