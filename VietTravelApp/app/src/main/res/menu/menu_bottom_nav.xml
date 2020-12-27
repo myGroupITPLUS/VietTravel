@@ -9,12 +9,14 @@
         android:id="@+id/nav_promotion"
         android:icon="@drawable/ic_promotion"
         android:title="Ưu đãi" />
-
     <item
         android:id="@+id/nav_camnang"
         android:icon="@drawable/ic_camnang"
         android:title="Cẩm nang" />
-
+    <item
+        android:id="@+id/nav_aboutus"
+        android:icon="@drawable/ic_security"
+        android:title="Giới Thiệu" />
     <item
         android:id="@+id/nav_account"
         android:icon="@drawable/ic_account"

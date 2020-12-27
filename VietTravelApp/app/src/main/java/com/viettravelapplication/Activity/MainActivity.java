@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.viettravelapplication.Fragment.AboutUsFragment;
 import com.viettravelapplication.Fragment.AccFragment;
 import com.viettravelapplication.Fragment.HomeFragment;
 import com.viettravelapplication.Fragment.PromotionFragment;
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_account:
                     toolbar.setTitle("Tài khoản");
                     fragment = new AccFragment();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.nav_aboutus:
+                    toolbar.setTitle("Giới Thiệu");
+                    fragment = new AboutUsFragment();
                     loadFragment(fragment);
                     return true;
             }

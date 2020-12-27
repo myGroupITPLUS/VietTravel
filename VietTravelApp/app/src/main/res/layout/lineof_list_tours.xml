@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
     <ImageView
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:id="@+id/imgTour"
         android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
@@ -13,8 +15,8 @@
         android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
         <FrameLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
