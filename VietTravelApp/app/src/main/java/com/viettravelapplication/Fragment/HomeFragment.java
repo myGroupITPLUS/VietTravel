@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.viettravelapplication.Activity.MainActivity;
 import com.viettravelapplication.Adapter.BannerAdapter;
 import com.viettravelapplication.Adapter.CategoryAdapter;
 import com.viettravelapplication.Adapter.PromotionAdapter;
@@ -28,6 +29,7 @@ import com.viettravelapplication.Adapter.TourAdapter;
 import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Banner;
 import com.viettravelapplication.Model.Category;
+import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment{
     Button btnLogin;
     EditText edtSearch;
     Button btnSearch;
-    List<Tour> promotionList;
+    List<Promotion> promotionList;
     List<Tour> tourList;
     List<Category> listCategory;
     List<Banner> bannerList;
@@ -67,6 +69,7 @@ public class HomeFragment extends Fragment{
         getAllBanner();
         getAllCategory();
         getAllTour();
+        getAllPromotion();
         return view;
     }
     private void getAllBanner() {
@@ -167,5 +170,37 @@ public class HomeFragment extends Fragment{
         tourAdapter = new TourAdapter(getActivity(), R.layout.line_tour, tourList);
         rvTour.setAdapter(tourAdapter);
         rvTour.setLayoutManager( new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+    }
+    private void getAllPromotion() {
+        promotionList = new ArrayList<>();
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_TOUR, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        promotionList.clear();
+                        for (int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                Promotion promotion = new Promotion(jsonObject.getInt("id"), jsonObject.getInt("categoryid"), jsonObject.getInt("promotionid"), jsonObject.getString("name"), jsonObject.getString("diemdi"), jsonObject.getString("diemden"), jsonObject.getString("timedi"), jsonObject.getString("timeve"), jsonObject.getString("descriptions"), jsonObject.getString("images"), (float) jsonObject.getDouble("price"));
+//                                Toast.makeText(getActivity(), "Promotion: "+promotion.toString(), Toast.LENGTH_LONG).show();
+                                promotionList.add(promotion);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        promotionAdapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(), ""+error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+        requestQueue.add(arrayRequest);
+        promotionAdapter = new PromotionAdapter(getActivity(), R.layout.line_promotion, promotionList);
+        rvPromotion.setAdapter(promotionAdapter);
+        rvPromotion.setLayoutManager( new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
     }
 }

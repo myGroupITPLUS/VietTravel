@@ -62,7 +62,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                 .into(holder.imageTour);
         holder.tvNameTour.setText(tour.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        holder.tvPrice.setText("Giá: "+decimalFormat.format(tour.getPrice())+" Đ");
+        holder.tvPrice.setText("Giá: "+decimalFormat.format(tour.getPrice())+" VNĐ");
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

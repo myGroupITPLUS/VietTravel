@@ -17,14 +17,15 @@ import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.ViewHolder> {
     Context context;
     int layout;
-    List<Tour> list;
+    List<Promotion> list;
 
-    public PromotionAdapter(Context context, int layout, List<Tour> list){
+    public PromotionAdapter(Context context, int layout, List<Promotion> list){
         this.context = context;
         this.layout = layout;
         this.list = list;
@@ -41,7 +42,6 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
         return list.size();
     }
 
-
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -53,27 +53,28 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       Tour tour = list.get(position);
-        Picasso.get().load(tour.getImages())
+       Promotion promotion = list.get(position);
+        Picasso.get().load(promotion.getImage())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imgTour);
-        holder.tvNameTour.setText(tour.getNametour());
-        holder.tvPromotion.setText("Mã giảm giá: "+tour.getPromotionid());
-        holder.tvPrice.setText((int) tour.getPrice());
+        holder.txtvNameTour.setText(promotion.getNametour());
+        holder.txtvUudai.setText("Mã giảm giá: "+promotion.getPromotionid());
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        holder.txtvGia.setText("Giá: "+decimalFormat.format(promotion.getPrice())+"Đ");
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imgTour;
-        TextView tvNameTour;
-        TextView tvPromotion;
-        TextView tvPrice;
+        TextView txtvNameTour;
+        TextView txtvUudai;
+        TextView txtvGia;
         public ViewHolder(View itemView) {
             super(itemView);
             imgTour = itemView.findViewById(R.id.imgTour);
-            tvNameTour = itemView.findViewById(R.id.txtvNameTour);
-            tvPromotion = itemView.findViewById(R.id.txtvUuDai);
-            tvPrice = itemView.findViewById(R.id.txtvGia);
+            txtvNameTour = itemView.findViewById(R.id.txtvNameTour);
+            txtvUudai = itemView.findViewById(R.id.txtvUuDai);
+            txtvGia = itemView.findViewById(R.id.txtvGia);
         }
     }
 }
