@@ -1,26 +1,119 @@
 package com.viettravelapplication.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 public class RegisterActivity extends AppCompatActivity {
+
+    EditText inputUsername;
+    EditText inputEmail;
+    EditText inputPassword;
+    EditText inputConfirmPassword;
+    boolean sending = false;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        TextView btn=findViewById(R.id.alreadyHaveAccount);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-            }
-        });
+        initMapping();
+    }
+
+    private void initMapping() {
+        inputUsername = findViewById(R.id.inputUsername);
+        inputEmail = findViewById(R.id.inputEmail);
+        inputPassword = findViewById(R.id.inputPassword);
+        inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
+        sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
+
+    }
+
+
+    public void handleClickChangeToLogin(View v) {
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+    }
+
+    public void handleClickRegister(View view) throws JSONException {
+        String username = String.valueOf(inputUsername.getText());
+        String email = String.valueOf(inputEmail.getText());
+        String password = String.valueOf(inputPassword.getText());
+        String confirmPassword = String.valueOf(inputConfirmPassword.getText());
+        if (username.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (email.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please input password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (confirmPassword.isEmpty()) {
+            Toast.makeText(RegisterActivity.this, "Please input confirm password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!confirmPassword.equals(password)) {
+            Toast.makeText(RegisterActivity.this, "Confirm password not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(RegisterActivity.this, "Sending", Toast.LENGTH_SHORT).show();
+        if (!sending) {
+            sending = true;
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("username", username);
+            jsonObject.put("email", email);
+            jsonObject.put("password", password);
+            RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
+            String url = "https://viet-travel-development.herokuapp.com/api/user/register/";
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
+                sending = false;
+                try {
+                    boolean success = response.getBoolean("success");
+                    if (success) {
+                        Toast.makeText(RegisterActivity.this, "Register complete", Toast.LENGTH_SHORT).show();
+                        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+                        JSONObject user = response.getJSONObject("user");
+                        editor.putInt("id", user.getInt("id"));
+                        editor.putString("username", user.getString("username"));
+                        editor.putString("phone", user.getString("phone"));
+                        editor.putString("address", user.getString("address"));
+                        editor.putString("email", user.getString("email"));
+                        editor.apply();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }, error -> {
+                error.printStackTrace();
+                Toast.makeText(RegisterActivity.this, "Network error", Toast.LENGTH_SHORT).show();
+            });
+            jsonRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            requestQueue.add(jsonRequest);
+        }
     }
 }
