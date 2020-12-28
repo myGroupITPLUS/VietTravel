@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.PromotionFragment">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+        <LinearLayout
+            android:weightSum="10"
+            android:paddingLeft="50dp"
+            android:paddingRight="30dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:hint="Tìm kiếm ưu đãi"
+                android:paddingLeft="10dp"></EditText>
+            <Button
+                android:paddingRight="20dp"
+                android:id="@+id/btnSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/search"></Button>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Săn sale ngay:"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:textColor="@color/red"
+            android:textSize="20dp"></TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvDSUuDai"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
