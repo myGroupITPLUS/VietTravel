@@ -32,10 +32,9 @@
             android:layout_height="40dp"
             android:background="@drawable/search"></Button>
     </LinearLayout>
-    <ListView
-        android:id="@+id/lvDSTour"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDSTour"
         android:paddingLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
-
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.RegisterActivity"
     android:background="@drawable/bg">
-
     <TextView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
@@ -20,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
-
     <EditText
         android:id="@+id/inputUsername"
         android:layout_width="0dp"
@@ -43,7 +41,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
-
     <EditText
         android:id="@+id/inputEmail"
         android:layout_width="0dp"
@@ -64,7 +61,6 @@
         app:layout_constraintEnd_toEndOf="@+id/inputUsername"
         app:layout_constraintStart_toStartOf="@+id/inputUsername"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
-
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="0dp"
@@ -85,7 +81,6 @@
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
     <EditText
         android:id="@+id/inputConfirmPassword"
         android:layout_width="0dp"
@@ -106,7 +101,6 @@
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
-
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
@@ -117,7 +111,6 @@
         app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
         app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword" />
-
     <TextView
         android:id="@+id/alreadyHaveAccount"
         android:layout_width="wrap_content"

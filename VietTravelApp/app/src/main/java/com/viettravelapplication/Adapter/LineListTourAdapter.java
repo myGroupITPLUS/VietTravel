@@ -29,7 +29,7 @@ public class LineListTourAdapter extends RecyclerView.Adapter<LineListTourAdapte
     int layout;
     List<Tour> list;
 
-    public LineListTourAdapter(ListTourActivity listTourActivity, int lineof_list_tours, List<Tour> tourList){
+    public LineListTourAdapter(Context context, int layout, List<Tour> list){
         this.context = context;
         this.layout = layout;
         this.list = list;

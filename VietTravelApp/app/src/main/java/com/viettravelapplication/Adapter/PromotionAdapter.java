@@ -57,7 +57,7 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       Promotion promotion = list.get(position);
+        Promotion promotion = list.get(position);
         Picasso.get().load(promotion.getImage())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)

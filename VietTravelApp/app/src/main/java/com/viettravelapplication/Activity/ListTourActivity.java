@@ -108,7 +108,7 @@ public class ListTourActivity extends AppCompatActivity {
         edtSearch = findViewById(R.id.edtSearch);
         btnSearch = findViewById(R.id.edtSearch);
         tbTourList = findViewById(R.id.tbTourList);
-        lvDSTour = findViewById(R.id.lvDSTour);
+        lvDSTour = findViewById(R.id.rcvDSTour);
     }
     private void init() {
         Intent intent = getIntent();

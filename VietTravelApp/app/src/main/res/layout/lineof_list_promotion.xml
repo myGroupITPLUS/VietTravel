@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/nen"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
     android:orientation="vertical"
     android:layout_height="match_parent">
     <FrameLayout
@@ -10,7 +11,7 @@
     <ImageView
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:id="@+id/imgTour"
+        android:id="@+id/imgPromotion"
         android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
         android:layout_height="150dp"></ImageView>
@@ -34,7 +35,7 @@
             android:background="@drawable/btn_bg2">
             <TextView
                 android:paddingTop="10dp"
-                android:id="@+id/txtvNameTour"
+                android:id="@+id/ttvNameTour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
@@ -74,7 +75,7 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvMaTour"
+                        android:id="@+id/ttvMaTour"
                         android:text="Ma Tour: "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
@@ -92,22 +93,22 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvThoiGianDi"
+                        android:id="@+id/ttvThoiGianDi"
                         android:text="Thoi Gian Di "
                         android:textColor="@color/black"></TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
                         android:text=" - "
                         android:textColor="@color/black"></TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvThoiGianVe"
+                        android:id="@+id/ttvThoiGianVe"
                         android:text="Thoi Gian Ve "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
@@ -125,7 +126,7 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvDiemDi"
+                        android:id="@+id/ttvDiemDi"
                         android:text="Diem Di"
                         android:textColor="@color/black"></TextView>
                     <TextView
@@ -140,7 +141,7 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvDiemDen"
+                        android:id="@+id/ttvDiemDen"
                         android:text="Diem Den"
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
