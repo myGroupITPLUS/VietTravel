@@ -1,5 +1,7 @@
 package com.viettravelapplication.Fragment;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.viettravelapplication.Activity.LoginActivity;
 import com.viettravelapplication.Activity.MainActivity;
 import com.viettravelapplication.Adapter.BannerAdapter;
 import com.viettravelapplication.Adapter.CategoryAdapter;
@@ -41,6 +44,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class HomeFragment extends Fragment{
     AdapterViewFlipper bannerFlipper;
     RecyclerView rvCategory;
@@ -58,6 +63,16 @@ public class HomeFragment extends Fragment{
     PromotionAdapter promotionAdapter;
     BannerAdapter bannerAdapter;
     private ItemClickListener itemClickListener;
+
+    SharedPreferences sharedPreferences;
+
+    public final int REQUEST_CODE = 123;
+
+    public final int CODE_LOGIN = 12;
+
+    public final String SUCCESS = "success";
+    public final String FAIL = "fail";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,6 +81,18 @@ public class HomeFragment extends Fragment{
         rvCategory = (RecyclerView) view.findViewById(R.id.rvCategory);
         rvTour = (RecyclerView) view.findViewById(R.id.rvTour);
         bannerFlipper = (AdapterViewFlipper) view.findViewById(R.id.bannerAdapter);
+        btnLogin = view.findViewById(R.id.btnLogin);
+
+        sharedPreferences = this.getActivity().getSharedPreferences("userProfile", MODE_PRIVATE);
+        int id = sharedPreferences.getInt("id", -1);
+        if (id == -1){
+            btnLogin.setText("Login");
+            btnLogin.setOnClickListener(this::handleOpenLogin);
+        }else{
+            btnLogin.setText("Logout");
+            btnLogin.setOnClickListener(this::handleLogout);
+        }
+
         getAllBanner();
         getAllCategory();
         getAllTour();
@@ -202,5 +229,32 @@ public class HomeFragment extends Fragment{
         promotionAdapter = new PromotionAdapter(getActivity(), R.layout.line_promotion, promotionList);
         rvPromotion.setAdapter(promotionAdapter);
         rvPromotion.setLayoutManager( new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == CODE_LOGIN) {
+                String returnedResult = data.getData().toString();
+                if (returnedResult.equals(SUCCESS)) {
+                    btnLogin.setText("Logout");
+                    btnLogin.setOnClickListener(this::handleLogout);
+                }
+            }
+        }
+    }
+
+    public void handleOpenLogin(View view){
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    public void handleLogout(View view){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        btnLogin.setText("Login");
+        btnLogin.setOnClickListener(this::handleOpenLogin);
     }
 }

@@ -3,6 +3,7 @@ package com.viettravelapplication.Activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,14 @@ public class LoginActivity extends AppCompatActivity {
     boolean sending = false;
     SharedPreferences sharedPreferences;
 
+    public final int REQUEST_CODE = 234;
+
+    public final int CODE_LOGIN = 12;
+    public final int CODE_REGISTER = 23;
+
+    public final String SUCCESS = "success";
+    public final String FAIL = "fail";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +63,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void handleClickChangeToRegister(View v) {
-        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+        startActivityForResult(new Intent(LoginActivity.this, RegisterActivity.class), REQUEST_CODE); ;
+    }
+
+    public void finishWithResult (boolean result) {
+        Intent data = new Intent();
+        if (result){
+            data.setData(Uri.parse(SUCCESS));
+        }else{
+            data.setData(Uri.parse(FAIL));
+        }
+        setResult(CODE_LOGIN, data);
+        finish();
     }
 
     public void handleClickLogin(View view) throws JSONException {
@@ -90,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("address", user.getString("address"));
                         editor.putString("email", user.getString("email"));
                         editor.apply();
+                        finishWithResult(true);
                     } else {
                         Toast.makeText(LoginActivity.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
@@ -102,6 +123,19 @@ public class LoginActivity extends AppCompatActivity {
             });
             jsonRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             requestQueue.add(jsonRequest);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == CODE_REGISTER) {
+                String returnedResult = data.getData().toString();
+                if (returnedResult.equals(SUCCESS)) {
+                    finishWithResult(true);
+                }
+            }
         }
     }
 }

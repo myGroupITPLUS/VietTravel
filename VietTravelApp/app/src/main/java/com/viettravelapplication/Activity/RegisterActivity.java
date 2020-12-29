@@ -3,6 +3,7 @@ package com.viettravelapplication.Activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +34,11 @@ public class RegisterActivity extends AppCompatActivity {
     boolean sending = false;
     SharedPreferences sharedPreferences;
 
+    public final int CODE_REGISTER = 23;
+
+    public final String SUCCESS = "success";
+    public final String FAIL = "fail";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +55,20 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    public void finishWithResult(boolean result) {
+        Intent data = new Intent();
+        if (result){
+            data.setData(Uri.parse(SUCCESS));
+        }else{
+            data.setData(Uri.parse(FAIL));
+        }
+        setResult(CODE_REGISTER, data);
+        finish();
+    }
+
 
     public void handleClickChangeToLogin(View v) {
-        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        finishWithResult(false);
     }
 
     public void handleClickRegister(View view) throws JSONException {
@@ -102,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                         editor.putString("address", user.getString("address"));
                         editor.putString("email", user.getString("email"));
                         editor.apply();
+                        finishWithResult(true);
                     } else {
                         Toast.makeText(RegisterActivity.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
