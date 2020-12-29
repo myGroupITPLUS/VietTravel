@@ -20,7 +20,9 @@ import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -58,10 +60,10 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Promotion promotion = list.get(position);
-        Picasso.get().load(promotion.getImage())
+        Picasso.get().load(StringUtil.LOAD_IMAGES+promotion.getImage())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
-                .into(holder.imgTour);
+                .into(holder.imagePromotion);
         holder.txtvNameTour.setText(promotion.getNametour());
         holder.txtvUudai.setText("Mã giảm giá: "+promotion.getPromotionid());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
@@ -73,7 +75,7 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
                     Toast.makeText(context, "Long Click: "+promotion, Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(context, PromotionDetailActivity.class);
-                    intent.putExtra("id", promotion.getId());
+                    intent.putExtra("promotionDetail", (Serializable) promotion);
                     context.startActivity(intent);
                 }
             }
@@ -81,14 +83,14 @@ public class PromotionAdapter extends RecyclerView.Adapter<PromotionAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
-        ImageView imgTour;
+        ImageView imagePromotion;
         TextView txtvNameTour;
         TextView txtvUudai;
         TextView txtvGia;
         private ItemClickListener itemClickListener;
         public ViewHolder(View itemView) {
             super(itemView);
-            imgTour = itemView.findViewById(R.id.imgTour);
+            imagePromotion = itemView.findViewById(R.id.imagePromotion);
             txtvNameTour = itemView.findViewById(R.id.txtvNameTour);
             txtvUudai = itemView.findViewById(R.id.txtvUuDai);
             txtvGia = itemView.findViewById(R.id.txtvGia);

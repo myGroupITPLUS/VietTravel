@@ -14,14 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.viettravelapplication.Activity.ListPromotionActivity;
-import com.viettravelapplication.Activity.ListTourActivity;
+import com.viettravelapplication.Activity.PromotionDetailActivity;
 import com.viettravelapplication.Activity.TourDetailActivity;
 import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Promotion;
-import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromotionAdapter.ViewHolder> {
@@ -59,12 +59,12 @@ public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromo
     @Override
     public void onBindViewHolder(@NonNull LineListPromotionAdapter.ViewHolder holder, int position) {
         Promotion promotion = list.get(position);
-        Picasso.get().load(promotion.getImage())
+        Picasso.get().load(StringUtil.LOAD_IMAGES+promotion.getImage())
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imgPromotion);
         holder.ttvNameTour.setText(promotion.getNametour());
-//        holder.ttvMaTour.setText(promotion.getId());
+//        holder.ttvMaTour.setText((promotion.getPromotionid());
         holder.ttvThoiGianDi.setText(promotion.getTimedi());
         holder.ttvThoiGianVe.setText(promotion.getTimeve());
         holder.ttvDiemDi.setText(promotion.getDiemdi());
@@ -75,8 +75,8 @@ public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromo
                 if (isLongClick){
                     Toast.makeText(context, "Long Click: "+promotion.toString(), Toast.LENGTH_SHORT).show();
                 }else {
-                    Intent intent = new Intent(context, TourDetailActivity.class);
-                    intent.putExtra("tourDetail", (Parcelable) promotion);
+                    Intent intent = new Intent(context, PromotionDetailActivity.class);
+                    intent.putExtra("promotionDetail", (Serializable) promotion);
                     context.startActivity(intent);
                 }
             }

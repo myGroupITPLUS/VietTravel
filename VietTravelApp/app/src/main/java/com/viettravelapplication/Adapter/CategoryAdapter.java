@@ -21,6 +21,7 @@ import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -72,7 +73,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     Toast.makeText(context, "Long Click: "+category, Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(context, ListTourActivity.class);
-                    intent.putExtra("id", category.getId());
+                    intent.putExtra("categoryDetail", (Serializable) category);
                     context.startActivity(intent);
                 }
             }

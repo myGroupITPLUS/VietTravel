@@ -21,6 +21,7 @@ import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class LineListTourAdapter extends RecyclerView.Adapter<LineListTourAdapte
                     Toast.makeText(context, "Long Click: "+tour, Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(context, TourDetailActivity.class);
-                    intent.putExtra("tourDetail", (Parcelable) tour);
+                    intent.putExtra("tourDetail", (Serializable) tour);
                     context.startActivity(intent);
                 }
             }

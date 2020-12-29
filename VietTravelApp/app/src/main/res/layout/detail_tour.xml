@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/nen"
     android:orientation="vertical"
     android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbDetail"
+        app:title="Chi tiết Tour"
+        android:background="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
+        android:paddingTop="10dp"
         android:id="@+id/imgTour"
         android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
@@ -81,7 +94,22 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
                         android:id="@+id/txtvThoiGianDi"
-                        android:text="Thoi Gian Di - Thoi Gian Ve "
+                        android:text="Thoi Gian Di "
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="-"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/txtvThoiGianVe"
+                        android:text="Thoi Gian Ve "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -99,7 +127,22 @@
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
                         android:id="@+id/txtvDiemDi"
-                        android:text="Diem Di - Diem Den "
+                        android:text="Diem Di "
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="-"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/txtvDiemDen"
+                        android:text="Diem Den "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -172,3 +215,4 @@
         android:background="@drawable/btn_bg"
         android:text="Dat tour" />
 </LinearLayout>
+</ScrollView>
