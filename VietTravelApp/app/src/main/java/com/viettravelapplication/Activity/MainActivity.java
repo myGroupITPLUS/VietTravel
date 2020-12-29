@@ -18,7 +18,10 @@ import com.viettravelapplication.Fragment.PromotionFragment;
 import com.viettravelapplication.Fragment.TipFragment;
 import com.viettravelapplication.R;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
+
     BottomNavigationView navigation;
     ActionBar toolbar;
     @Override

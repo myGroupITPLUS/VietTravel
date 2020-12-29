@@ -1,6 +1,8 @@
 package com.viettravelapplication.Model;
 
-public class Tour{
+import java.io.Serializable;
+
+public class Tour implements Serializable {
     private int id;
     private int categoryid;
     private int promotionid;

@@ -1,6 +1,8 @@
 package com.viettravelapplication.Model;
 
-public class Tip {
+import java.io.Serializable;
+
+public class Tip implements Serializable {
     private int id;
     private String title;
     private String content;

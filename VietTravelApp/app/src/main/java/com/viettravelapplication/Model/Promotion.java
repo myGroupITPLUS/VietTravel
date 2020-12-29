@@ -1,5 +1,8 @@
 package com.viettravelapplication.Model;
-public class Promotion {
+
+import java.io.Serializable;
+
+public class Promotion implements Serializable {
     private int id;
     private int categoryid;
     private int promotionid;

@@ -42,10 +42,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListTourActivity extends AppCompatActivity {
+public class ListTourByCateIdActivity extends AppCompatActivity {
     EditText edtSearch;
     Button btnSearch;
-    ListView lvDSTour;
+    RecyclerView rcvTour;
     List<Tour> tourList;
     LineListTourAdapter lineListTourAdapter;
     Toolbar tbTourList;
@@ -60,7 +60,10 @@ public class ListTourActivity extends AppCompatActivity {
 
     private void getAllTourByCategoryId(int id) {
         tourList = new ArrayList<>();
-        RequestQueue requestQueue = Volley.newRequestQueue(ListTourActivity.this);
+        lineListTourAdapter = new LineListTourAdapter(ListTourByCateIdActivity.this, R.layout.lineof_list_tours, tourList);
+        rcvTour.setAdapter(lineListTourAdapter);
+        rcvTour.setHasFixedSize(true);
+        rcvTour.setLayoutManager(new LinearLayoutManager(this));
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_TOUR, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -82,40 +85,29 @@ public class ListTourActivity extends AppCompatActivity {
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ListTourActivity.this, ""+error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ListTourByCateIdActivity.this, ""+error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(arrayRequest);
-        lineListTourAdapter = new LineListTourAdapter(ListTourActivity.this, R.layout.lineof_list_tours, tourList);
-        lvDSTour.setAdapter((ListAdapter) lineListTourAdapter);
+
     }
 
-    private void ActionToolBar(){
-        setSupportActionBar(tbTourList);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tbTourList.setNavigationIcon(android.R.drawable.ic_menu_revert);
-        tbTourList.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                intent.putExtra("home","home");
-                startActivity(intent);
-            }
-        });
-    }
+
     @SuppressLint("WrongViewCast")
     private void mapping() {
-        edtSearch = findViewById(R.id.edtSearch);
-        btnSearch = findViewById(R.id.edtSearch);
-        tbTourList = findViewById(R.id.tbTourList);
-        lvDSTour = findViewById(R.id.rcvDSTour);
+//        edtSearch = findViewById(R.id.edtSearch);
+//        btnSearch = findViewById(R.id.edtSearch);
+//        tbTourList = findViewById(R.id.tbTourList);
+        rcvTour = findViewById(R.id.rcvDSTour);
     }
     private void init() {
         Intent intent = getIntent();
-        Category cate = (Category) intent.getSerializableExtra("id");
+        Category cate = (Category) intent.getSerializableExtra("categoryDetail");
         title = cate.getCategoryname();
-        getAllTourByCategoryId(cate.getId());
-        ActionToolBar();
+        int id = cate.getId();
+        getAllTourByCategoryId(id);
+
     }
 
 }

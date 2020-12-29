@@ -5,13 +5,9 @@
     android:fillViewport="false">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:background="@drawable/bg7"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/bg4">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,22 +15,27 @@
         android:text="Chào mừng bạn đến với Chúng tôi!"
         android:paddingTop="20dp"
         android:gravity="center"
+        android:textStyle="bold"
         android:textColor="@color/red"
-        android:textSize="20sp"></TextView>
+        android:textSize="22sp"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Giới thiệu về Viet Travel:"
         android:paddingTop="10dp"
         android:paddingLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"></TextView>
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"></TextView>
     <TextView
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvDescription"
-        android:textSize="16dp"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
         android:paddingTop="10dp"
         android:paddingLeft="30dp"
         android:paddingRight="20dp"
@@ -44,14 +45,19 @@
         android:layout_height="wrap_content"
         android:text="Điều khoản:"
         android:paddingTop="10dp"
+        android:textStyle="bold"
         android:paddingLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"></TextView>
+        android:textColor="@color/white"
+        android:textSize="20sp"></TextView>
     <TextView
         android:gravity="left"
         android:paddingLeft="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
         android:id="@+id/tvRule"
         android:paddingTop="10dp"
         ></TextView>
@@ -60,32 +66,42 @@
         android:layout_height="wrap_content"
         android:text="Địa Chỉ:"
         android:paddingTop="10dp"
+        android:textStyle="bold"
         android:paddingLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"></TextView>
+        android:textColor="@color/white"
+        android:textSize="20sp"></TextView>
     <TextView
         android:gravity="left"
         android:paddingLeft="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvAddress"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
         android:paddingTop="10dp"
         ></TextView>
-    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Liên hệ:"
         android:paddingTop="10dp"
         android:paddingLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"></TextView>
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"></TextView>
     <TextView
         android:gravity="left"
         android:paddingLeft="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/white"
         android:id="@+id/tvContact"
         android:paddingTop="10dp"
         ></TextView>
-</LinearLayout></ScrollView>
+</LinearLayout>
+</ScrollView>

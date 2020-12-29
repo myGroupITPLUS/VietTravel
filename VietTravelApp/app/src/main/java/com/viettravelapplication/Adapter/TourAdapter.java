@@ -23,10 +23,11 @@ import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.List;
 
-public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
+public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> implements Serializable{
     Context context;
     int layout;
     List<Tour> list;
@@ -35,12 +36,6 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
         this.context = context;
         this.layout = layout;
         this.list = list;
-    }
-
-
-    @Override
-    public long getItemId(int position) {
-        return list.get(position).getId();
     }
 
     @Override
@@ -75,7 +70,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                     Toast.makeText(context, "Long Click: "+tour, Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(context, TourDetailActivity.class);
-                    intent.putExtra("id", tour.getId());
+                    intent.putExtra("tourDetail", (Serializable) tour);
                     context.startActivity(intent);
                 }
             }
