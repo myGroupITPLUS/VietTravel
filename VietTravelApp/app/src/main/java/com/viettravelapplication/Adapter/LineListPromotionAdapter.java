@@ -22,6 +22,7 @@ import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromotionAdapter.ViewHolder> {
@@ -65,6 +66,8 @@ public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromo
                 .into(holder.imgPromotion);
         holder.ttvNameTour.setText(promotion.getNametour());
 //        holder.ttvMaTour.setText((promotion.getPromotionid());
+        DecimalFormat decimalFormat = new DecimalFormat("#");
+        holder.ttvMaTour.setText("Mã giảm giá: "+decimalFormat.format(promotion.getId()));
         holder.ttvThoiGianDi.setText(promotion.getTimedi());
         holder.ttvThoiGianVe.setText(promotion.getTimeve());
         holder.ttvDiemDi.setText(promotion.getDiemdi());

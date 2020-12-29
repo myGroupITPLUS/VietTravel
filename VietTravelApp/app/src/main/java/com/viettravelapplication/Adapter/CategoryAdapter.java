@@ -2,11 +2,9 @@ package com.viettravelapplication.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,13 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.viettravelapplication.Activity.ListTourActivity;
+import com.viettravelapplication.Activity.ListTourByCateIdActivity;
 import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Category;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -72,8 +69,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 if (isLongClick){
                     Toast.makeText(context, "Long Click: "+category, Toast.LENGTH_SHORT).show();
                 }else {
-                    Intent intent = new Intent(context, ListTourActivity.class);
-                    intent.putExtra("categoryDetail", (Serializable) category);
+                    Intent intent = new Intent(context, ListTourByCateIdActivity.class);
+                    intent.putExtra("categoryDetail", category);
                     context.startActivity(intent);
                 }
             }
