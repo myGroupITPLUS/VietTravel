@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.viettravelapplication.Activity.PromotionDetailActivity;
+import com.viettravelapplication.Activity.TipDetailActivity;
 import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.Model.Tip;
 import com.viettravelapplication.R;
@@ -53,14 +54,14 @@ public class TipAdapter extends RecyclerView.Adapter<TipAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Tip tip = list.get(position);
-        holder.tvTitle.setText("Tiêu Đề "+tip.getTitle());
+        holder.tvTitle.setText("Tiêu Đề: "+tip.getTitle());
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
                 if (isLongClick){
                     Toast.makeText(context, "Long Click: "+tip, Toast.LENGTH_SHORT).show();
                 }else {
-                    Intent intent = new Intent(context, PromotionDetailActivity.class);
+                    Intent intent = new Intent(context, TipDetailActivity.class);
                     intent.putExtra("tipDetail", (Serializable) tip);
                     context.startActivity(intent);
                 }

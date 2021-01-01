@@ -16,8 +16,9 @@
             <TextView
                 android:background="@color/blue"
                 android:paddingLeft="30dp"
-                android:textColor="@color/red"
-                android:textSize="30sp"
+                android:paddingRight="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 android:id="@+id/tvTitle"
                 android:text="Title"
                 android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 android:background="@color/nen"
                 android:scaleType="centerInside"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="45sp"
                 android:layout_gravity="bottom"
                 android:src="@drawable/xem_them">
             </ImageView>

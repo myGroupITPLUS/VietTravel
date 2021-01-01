@@ -9,5 +9,5 @@ public class StringUtil {
     public static final String API_GET_ALL_USER = HOST+"api/user/";
     public static final String LOAD_IMAGES = HOST+"api/images/";
     public static final String API_GET_TOUR_BY_CATEGORY_ID = HOST+"api/tour";
-    public static final String API_GET_ALL_TIP = "192.168.56.1:81/VietTravel/getAllTip.php";
+    public static final String API_GET_ALL_TIP = "http://192.168.1.227:81/VietTravel/getAllTip.php";
 }

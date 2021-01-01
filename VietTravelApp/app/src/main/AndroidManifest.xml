@@ -19,6 +19,7 @@
         <activity android:name=".Activity.TourDetailActivity" />
         <activity android:name=".Activity.PromotionDetailActivity"/>
         <activity android:name=".Activity.ListTourByCateIdActivity"/>
+        <activity android:name=".Activity.TipDetailActivity"/>
         <activity android:name=".Activity.LoginActivity"/>
         <activity android:name=".Activity.RegisterActivity"/>
         <activity android:name=".Activity.MainActivity">
