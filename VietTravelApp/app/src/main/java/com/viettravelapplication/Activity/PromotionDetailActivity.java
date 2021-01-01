@@ -2,26 +2,15 @@ package com.viettravelapplication.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import com.squareup.picasso.Picasso;
 import com.viettravelapplication.Model.Promotion;
-import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
-
-import java.io.Serializable;
-import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 
 public class PromotionDetailActivity extends AppCompatActivity {

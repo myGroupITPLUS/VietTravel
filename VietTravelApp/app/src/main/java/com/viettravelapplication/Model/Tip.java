@@ -6,19 +6,12 @@ public class Tip implements Serializable {
     private int id;
     private String title;
     private String content;
-    private String image;
 
-    public Tip(int id, String title, String content, String image) {
+
+    public Tip(int id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.image = image;
-    }
-
-    public Tip(String title, String content, String image) {
-        this.title = title;
-        this.content = content;
-        this.image = image;
     }
 
     public int getId() {
@@ -45,13 +38,6 @@ public class Tip implements Serializable {
         this.content = content;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     @Override
     public String toString() {
@@ -59,7 +45,7 @@ public class Tip implements Serializable {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", image='" + image + '\'' +
+                ", image='"  + '\'' +
                 '}';
     }
 }
