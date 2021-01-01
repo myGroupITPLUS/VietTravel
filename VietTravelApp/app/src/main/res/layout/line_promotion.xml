@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="220dp"
+    android:background="@color/nen"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
@@ -16,10 +17,12 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/imagePromotion"
+                android:scaleType="fitXY"
                 android:layout_width="220dp"
                 android:layout_height="140dp"
                 android:src="@mipmap/ic_launcher" />
             <ImageView
+                android:scaleType="fitXY"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="right"
