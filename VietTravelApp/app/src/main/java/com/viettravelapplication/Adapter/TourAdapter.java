@@ -60,7 +60,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> im
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imageTour);
-        holder.tvNameTour.setText(tour.getNametour());
+        holder.tvNameTour.setText("Tên Tour: "+tour.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.tvPrice.setText("Giá: "+decimalFormat.format(tour.getPrice())+" VNĐ");
         holder.setItemClickListener(new ItemClickListener() {

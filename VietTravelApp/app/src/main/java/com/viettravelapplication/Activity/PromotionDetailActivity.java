@@ -80,7 +80,7 @@ public class PromotionDetailActivity extends AppCompatActivity {
                 .into(imagePromotion);
         txtvNameTour.setText(promotion.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("#");
-        txtvMaTour.setText(decimalFormat.format(promotion.getId()));
+        txtvMaTour.setText("Mã Tour: "+decimalFormat.format(promotion.getId()));
         txtvThoiGianDi.setText(promotion.getTimedi());
         txtvThoiGianVe.setText(promotion.getTimeve());
         txtvDiemDi.setText(promotion.getDiemdi());

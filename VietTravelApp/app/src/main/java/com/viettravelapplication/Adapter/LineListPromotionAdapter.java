@@ -64,10 +64,10 @@ public class LineListPromotionAdapter extends RecyclerView.Adapter<LineListPromo
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imgPromotion);
-        holder.ttvNameTour.setText(promotion.getNametour());
+        holder.ttvNameTour.setText("Tên Tour: "+promotion.getNametour());
 //        holder.ttvMaTour.setText((promotion.getPromotionid());
         DecimalFormat decimalFormat = new DecimalFormat("#");
-        holder.ttvMaTour.setText("Mã giảm giá: "+decimalFormat.format(promotion.getId()));
+        holder.ttvMaTour.setText("Mã tour: "+decimalFormat.format(promotion.getId()));
         holder.ttvThoiGianDi.setText(promotion.getTimedi());
         holder.ttvThoiGianVe.setText(promotion.getTimeve());
         holder.ttvDiemDi.setText(promotion.getDiemdi());

@@ -63,7 +63,7 @@ public class LineListTourAdapter extends RecyclerView.Adapter<LineListTourAdapte
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(holder.imgTour);
-        holder.txtvNameTour.setText(tour.getNametour());
+        holder.txtvNameTour.setText("Tên Tour: "+tour.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("#");
         holder.txtvMaTour.setText("Mã tour: "+decimalFormat.format(tour.getId()));
         holder.txtvThoiGianDi.setText(tour.getTimedi());

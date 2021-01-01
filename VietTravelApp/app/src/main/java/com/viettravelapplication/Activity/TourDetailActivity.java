@@ -76,9 +76,9 @@ public class TourDetailActivity extends AppCompatActivity {
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(imgTour);
-        txtvNameTour.setText(tour.getNametour());
+        txtvNameTour.setText("Tên của tour: "+tour.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("#");
-        txtvMaTour.setText(decimalFormat.format(tour.getId()));
+        txtvMaTour.setText("Mã Tour: "+decimalFormat.format(tour.getId()));
         txtvThoiGianDi.setText(tour.getTimedi());
         txtvThoiGianVe.setText(tour.getTimeve());
         txtvDiemDi.setText(tour.getDiemdi());
