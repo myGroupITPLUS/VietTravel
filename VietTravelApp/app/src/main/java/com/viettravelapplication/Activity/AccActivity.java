@@ -99,7 +99,8 @@ public class AccActivity extends AppCompatActivity {
         });
         btnVanPhongDaiDien.setOnClickListener(new View.OnClickListener(){
             public  void onClick(View v){
-                Toast.makeText(AccActivity.this, "Chưa update tính năng này", Toast.LENGTH_SHORT).show();
+                fragment = new AboutUsFragment();
+                loadFragment(fragment);
             }
         });
         trungtamhotro.setOnClickListener(new View.OnClickListener(){
