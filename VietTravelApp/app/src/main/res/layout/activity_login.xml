@@ -28,11 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/input_bg"
-        android:drawableLeft="@drawable/ic_person"
+        android:drawableLeft="@drawable/ic_key"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -81,12 +81,13 @@
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/btn_bg"
         android:text="Login"
+        android:onClick="handleClickLogin"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
@@ -99,10 +100,10 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/btnlogin"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnlogin"
-        app:layout_constraintTop_toBottomOf="@+id/btnlogin">
+        app:layout_constraintStart_toStartOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
 
         <TextView
             android:layout_width="wrap_content"
@@ -115,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SignUp"
+            android:onClick="handleClickChangeToRegister"
             android:textColor="@color/red" />
 
     </LinearLayout>

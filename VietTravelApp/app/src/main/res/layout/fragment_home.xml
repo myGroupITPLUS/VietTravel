@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/header"
     android:layout_height="match_parent"
-    tools:context=".Fragment.home">
+    tools:context=".Fragment.HomeFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +30,8 @@
                 android:text="Login"></Button>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="150dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
             android:layout_gravity="center">
             <AdapterViewFlipper
                 android:id="@+id/bannerAdapter"
@@ -42,6 +42,8 @@
         <LinearLayout
             android:layout_marginTop="25dp"
             android:weightSum="10"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:paddingLeft="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -64,7 +66,7 @@
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="235dp"
             android:padding="10dp"
             android:orientation="vertical">
             <TextView
@@ -81,27 +83,27 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="155dp"
+            android:padding="3dp"
+            android:layout_marginTop="3dp"
             android:background="@color/blue"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:text="Điểm đến yêu thích"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold"></TextView>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="130dp">
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="230dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="50dp"
             android:padding="10dp"

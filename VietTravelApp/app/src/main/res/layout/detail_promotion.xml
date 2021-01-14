@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="false">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@color/nen"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <ImageView
-        android:padding="5dp"
-        android:layout_gravity="right"
-        android:src="@drawable/sale"
-        android:layout_width="200dp"
-        android:layout_height="80dp"></ImageView>
-    <ImageView
-        android:id="@+id/imgTour"
-        android:src="@mipmap/ic_launcher"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"></ImageView>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/IMGPromotion"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"></ImageView>
+            <ImageView
+                android:scaleType="fitXY"
+                android:padding="5dp"
+                android:layout_gravity="right"
+                android:src="@drawable/sale"
+                android:layout_width="130dp"
+                android:layout_height="80dp"></ImageView>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
     <LinearLayout
         android:paddingTop="10dp"
         android:layout_width="match_parent"
@@ -24,18 +45,18 @@
         <FrameLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="140dp"
             android:background="@drawable/btn_bg2">
             <TextView
                 android:paddingTop="10dp"
-                android:id="@+id/txtvNameTour"
+                android:id="@+id/TXTNamePromotion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
+                android:paddingLeft="80dp"
                 android:layout_marginLeft="10dp"
                 android:text="Ten cua tour "
                 android:textColor="@color/black"
-                android:textSize="15dp"
+                android:textSize="18sp"
                 android:textStyle="bold"></TextView>
             <TextView
                 android:paddingTop="10dp"
@@ -47,7 +68,7 @@
                 android:text="\n- - - - - - - - - - - - - - - - - - - - - - - - - -"
                 android:textColor="@color/black"
                 android:textSize="15dp"
-                android:paddingBottom="50dp"
+                android:paddingBottom="80dp"
                 android:textStyle="bold"></TextView>
             <LinearLayout
                 android:layout_gravity="bottom"
@@ -68,7 +89,7 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvMaTour"
+                        android:id="@+id/TXTMaPromotion"
                         android:text="Ma Tour: "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
@@ -86,8 +107,23 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvThoiGianDi"
-                        android:text="Thoi Gian Di - Thoi Gian Ve "
+                        android:id="@+id/TXTThoiGianDi"
+                        android:text="Thoi Gian Di"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="-"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/TXTThoiGianDen"
+                        android:text="Thoi Gian Den"
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -104,8 +140,23 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="20dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/txtvDiemDi"
-                        android:text="Diem Di - Diem Den "
+                        android:id="@+id/TXTDiemDi"
+                        android:text="Diem Di"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="-"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:id="@+id/TXTDiemDen"
+                        android:text="Diem Den "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -126,13 +177,15 @@
             android:paddingRight="30dp"
             android:visibility="visible">
             <TextView
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
-                android:id="@+id/txtvGiaTour"
+                android:textStyle="bold"
+                android:id="@+id/TXTGiaTour"
                 android:text="Gia tour: "
-                android:textColor="@color/blue"></TextView>
+                android:textColor="@color/red"></TextView>
         </FrameLayout>
     </LinearLayout>
     <LinearLayout
@@ -164,17 +217,18 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingTop="5dp"
-                android:id="@+id/txtvMota"
+                android:id="@+id/TXTMota"
                 android:text="Mo ta:  "
                 android:textColor="@color/black"></TextView>
         </FrameLayout>
     </LinearLayout>
     <Button
-        android:id="@+id/btnDatTour"
+        android:id="@+id/btnDatPromotion"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         android:background="@drawable/btn_bg"
-        android:text="Dat tour" />
+        android:text="Đặt" />
 </LinearLayout>
+</ScrollView>

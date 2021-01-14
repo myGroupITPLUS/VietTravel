@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import com.viettravelapplication.Model.Banner;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
 import java.util.List;
 
 public class BannerAdapter extends BaseAdapter {
-    private final String urlImage ="http://54.169.31.141:8080/api/images/";
     Context context;
     int layout;
     List<Banner> list;
@@ -46,7 +46,7 @@ public class BannerAdapter extends BaseAdapter {
         convertView = layoutInflater.inflate(layout, null);
         ImageView imageView = convertView.findViewById(R.id.imgSlider);
         Banner banner = list.get(position);
-        Picasso.get().load(urlImage+banner.getImages()).into(imageView);
+        Picasso.get().load(StringUtil.LOAD_IMAGES+banner.getImages()).into(imageView);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         return  convertView;
     }

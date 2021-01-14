@@ -15,6 +15,13 @@ public class Banner {
         this.images = images;
     }
 
+    public Banner(String name, String descriptions, String url, String images) {
+        this.name = name;
+        this.descriptions = descriptions;
+        this.url = url;
+        this.images = images;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,6 +1,8 @@
 package com.viettravelapplication.Model;
 
-public class Tour{
+import java.io.Serializable;
+
+public class Tour implements Serializable {
     private int id;
     private int categoryid;
     private int promotionid;
@@ -38,6 +40,15 @@ public class Tour{
         this.descriptions = descriptions;
         this.images = images;
         this.price = price;
+    }
+
+    public Tour(int id, String nametour, String diemdi, String diemden, String timedi, String timeve) {
+        this.id = id;
+        this.nametour = nametour;
+        this.diemdi = diemdi;
+        this.diemden = diemden;
+        this.timedi = timedi;
+        this.timeve = timeve;
     }
 
     public int getId() {
