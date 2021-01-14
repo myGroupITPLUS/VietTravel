@@ -1,10 +1,14 @@
 package com.viettravelapplication.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
@@ -12,6 +16,7 @@ import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 public class TourDetailActivity extends AppCompatActivity {
@@ -26,7 +31,6 @@ public class TourDetailActivity extends AppCompatActivity {
     String descriptions ="";
     String images = "";
     double price = 0;
-
     ImageView imgTour;
     TextView txtvNameTour;
     TextView txtvMaTour;
@@ -37,18 +41,37 @@ public class TourDetailActivity extends AppCompatActivity {
     TextView txtvGiaTour;
     TextView txtvMota;
     Button btnDatTour;
-
-
+    SharedPreferences sharedPreferences;
+    ActionBar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_tour);
+
         mapping();
         init();
+        btnDatTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
+                int id = sharedPreferences.getInt("id", -1);
+                if (id == -1){
+                    startActivity(new Intent(TourDetailActivity.this,RegisterActivity.class));
+                }else{
+                    Intent intent1 = getIntent();
+                    Tour tour = (Tour) intent1.getSerializableExtra("tourDetail");
+                    Intent intent2 = new Intent(TourDetailActivity.this,DatTourActivity.class);
+                    intent2.putExtra("tourDetail",(Serializable) tour);
+                    startActivity(intent2);
+                }
+            }
+        });
     }
 
 
     private void init() {
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Chi tiết tour");
         Intent intent1 = getIntent();
         Tour tour = (Tour) intent1.getSerializableExtra("tourDetail");
         System.out.println(tour.toString());
@@ -67,7 +90,7 @@ public class TourDetailActivity extends AppCompatActivity {
                 .placeholder(R.drawable.loading)
                 .error(R.drawable.noimageicon)
                 .into(imgTour);
-        txtvNameTour.setText("Tên của tour: "+tour.getNametour());
+        txtvNameTour.setText(tour.getNametour());
         DecimalFormat decimalFormat = new DecimalFormat("#");
         txtvMaTour.setText("Mã Tour: "+decimalFormat.format(tour.getId()));
         txtvThoiGianDi.setText(tour.getTimedi());
