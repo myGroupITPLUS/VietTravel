@@ -29,7 +29,7 @@
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvDSTour"
-        android:paddingLeft="20dp"
+        android:paddingLeft="5dp"
         android:dividerHeight="30.0sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>

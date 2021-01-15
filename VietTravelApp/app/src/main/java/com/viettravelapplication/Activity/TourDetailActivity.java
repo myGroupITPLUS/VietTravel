@@ -47,7 +47,6 @@ public class TourDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_tour);
-
         mapping();
         init();
         btnDatTour.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +59,7 @@ public class TourDetailActivity extends AppCompatActivity {
                 }else{
                     Intent intent1 = getIntent();
                     Tour tour = (Tour) intent1.getSerializableExtra("tourDetail");
-                    Intent intent2 = new Intent(TourDetailActivity.this,DatTourActivity.class);
+                    Intent intent2 = new Intent(TourDetailActivity.this, DatTourActivity.class);
                     intent2.putExtra("tourDetail",(Serializable) tour);
                     startActivity(intent2);
                 }

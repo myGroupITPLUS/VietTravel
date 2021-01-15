@@ -10,13 +10,6 @@
     android:background="@color/nen"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbDetail"
-        app:title="Chi tiết Tour"
-        android:background="@color/blue"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-    </androidx.appcompat.widget.Toolbar>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,8 +43,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
         <LinearLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
@@ -206,7 +199,7 @@
         <FrameLayout
             android:background="@drawable/btn_bg2"
             android:layout_width="360dp"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="10dp"
             android:paddingRight="30dp"

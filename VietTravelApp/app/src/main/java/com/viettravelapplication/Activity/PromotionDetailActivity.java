@@ -1,16 +1,22 @@
 package com.viettravelapplication.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.squareup.picasso.Picasso;
 import com.viettravelapplication.Model.Promotion;
+import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
+
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 public class PromotionDetailActivity extends AppCompatActivity {
@@ -36,6 +42,8 @@ public class PromotionDetailActivity extends AppCompatActivity {
     TextView txtvGiaTour;
     TextView txtvMota;
     Button btnDatTour;
+    SharedPreferences sharedPreferences;
+    ActionBar toolbar;
 
 
     @Override
@@ -44,13 +52,31 @@ public class PromotionDetailActivity extends AppCompatActivity {
         setContentView(R.layout.detail_promotion);
         mapping();
         init();
+        btnDatTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
+                int id = sharedPreferences.getInt("id", -1);
+                if (id == -1){
+                    startActivity(new Intent(PromotionDetailActivity.this,RegisterActivity.class));
+                }else{
+                    Intent intent1 = getIntent();
+                    Promotion promotion = (Promotion) intent1.getSerializableExtra("promotionDetail");
+                    Intent intent2 = new Intent(PromotionDetailActivity.this, DatTourActivity.class);
+                    intent2.putExtra("promotionDetail",(Serializable) promotion);
+                    startActivity(intent2);
+                }
+            }
+        });
     }
 
 
     private void init() {
+        toolbar = getSupportActionBar();
+        toolbar.setTitle("Chi tiết Ưu đãi");
         Intent intent1 = getIntent();
         Promotion promotion = (Promotion) intent1.getSerializableExtra("promotionDetail");
-        System.out.println(promotion.toString());
+//        System.out.println(promotion.toString());
         id = promotion.getId();
         CategoryId = promotion.getCategoryid();
         promotionId = promotion.getPromotionid();

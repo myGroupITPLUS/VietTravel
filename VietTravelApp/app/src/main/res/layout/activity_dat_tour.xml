@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg7"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="20dp"
     android:orientation="vertical"
@@ -8,44 +9,49 @@
     android:layout_height="match_parent"
     tools:context=".Activity.DatTourActivity">
     <LinearLayout
+        android:paddingTop="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:text="I. Thông tin tour:"
-            android:textSize="20sp"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txtTourname"
             android:text="Tên tour"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
+            android:paddingTop="5dp"
             android:id="@+id/txtTimeve"
             android:text="Thời gian"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/txtKhoihanh"
             android:text="Nơi khởi hành"
-            android:textSize="15sp"
+            android:paddingTop="5dp"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <LinearLayout
             android:orientation="horizontal"
+            android:paddingTop="10sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
                 android:text="Giá tour: "
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -67,30 +73,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:textStyle="bold"
             android:text="II. Thông tin liên hệ:"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textColor="@color/purple_500"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
+            android:height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/btn_bg2"
             android:layout_marginTop="10dp"
             android:id="@+id/edtHoten"
             android:hint="Họ Tên"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <EditText
+            android:height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/btn_bg2"
             android:layout_marginTop="10dp"
             android:id="@+id/edtDiachi"
             android:hint="Địa chỉ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <EditText
+            android:height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/btn_bg2"
             android:layout_marginTop="10dp"
             android:id="@+id/edtEmail"
             android:hint="Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <EditText
+            android:height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/btn_bg2"
             android:layout_marginTop="10dp"
             android:id="@+id/edtDidong"
             android:hint="Di động"

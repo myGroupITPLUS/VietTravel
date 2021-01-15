@@ -37,13 +37,13 @@
             android:layout_height="wrap_content"
             android:text="Săn sale ngay:"
             android:textStyle="bold"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/red"
             android:textSize="20dp"></TextView>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvDSUuDai"
             android:dividerHeight="30.0sp"
-            android:paddingLeft="20dp"
+            android:paddingLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
