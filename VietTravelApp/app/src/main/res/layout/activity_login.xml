@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.13" />
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/inputNewPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -56,7 +56,7 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -75,10 +75,11 @@
         android:layout_marginTop="16dp"
         android:text="Forgot Password?"
         android:textColor="@color/white"
+        android:onClick="handleClickChangeToForgotPassword"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/inputNewPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputNewPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -88,8 +89,8 @@
         android:background="@drawable/btn_bg"
         android:text="Login"
         android:onClick="handleClickLogin"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputNewPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputNewPassword"
         app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
     <LinearLayout

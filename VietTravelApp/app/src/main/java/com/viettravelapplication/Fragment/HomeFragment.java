@@ -1,5 +1,6 @@
 package com.viettravelapplication.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -73,6 +74,7 @@ public class HomeFragment extends Fragment{
     public final String SUCCESS = "success";
     public final String FAIL = "fail";
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -86,10 +88,10 @@ public class HomeFragment extends Fragment{
         sharedPreferences = this.getActivity().getSharedPreferences("userProfile", MODE_PRIVATE);
         int id = sharedPreferences.getInt("id", -1);
         if (id == -1){
-            btnLogin.setText("Login");
+            btnLogin.setText("Đăng nhập");
             btnLogin.setOnClickListener(this::handleOpenLogin);
         }else{
-            btnLogin.setText("Logout");
+            btnLogin.setText("Đăng xuất");
             btnLogin.setOnClickListener(this::handleLogout);
         }
 
@@ -231,6 +233,7 @@ public class HomeFragment extends Fragment{
         rvPromotion.setLayoutManager( new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -238,7 +241,7 @@ public class HomeFragment extends Fragment{
             if (resultCode == CODE_LOGIN) {
                 String returnedResult = data.getData().toString();
                 if (returnedResult.equals(SUCCESS)) {
-                    btnLogin.setText("Logout");
+                    btnLogin.setText("Đăng xuất");
                     btnLogin.setOnClickListener(this::handleLogout);
                 }
             }
@@ -250,11 +253,12 @@ public class HomeFragment extends Fragment{
         startActivityForResult(intent, REQUEST_CODE);
     }
 
+    @SuppressLint("SetTextI18n")
     public void handleLogout(View view){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        btnLogin.setText("Login");
+        btnLogin.setText("Đăng Nhập");
         btnLogin.setOnClickListener(this::handleOpenLogin);
     }
 }

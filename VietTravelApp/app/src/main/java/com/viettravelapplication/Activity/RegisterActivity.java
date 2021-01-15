@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +17,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.EmailUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -48,11 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initMapping() {
         inputUsername = findViewById(R.id.inputUsername);
-        inputEmail = findViewById(R.id.inputEmail);
-        inputPassword = findViewById(R.id.inputPassword);
+        inputEmail = findViewById(R.id.inputOldPassword);
+        inputPassword = findViewById(R.id.inputNewPassword);
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
         sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
-
     }
 
     public void finishWithResult(boolean result) {
@@ -83,6 +79,11 @@ public class RegisterActivity extends AppCompatActivity {
         if (email.isEmpty()) {
             Toast.makeText(RegisterActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
             return;
+        }else {
+            if (!EmailUtil.isValid(email)){
+                Toast.makeText(RegisterActivity.this, "Email invalidate", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         if (password.isEmpty()) {
             Toast.makeText(RegisterActivity.this, "Please input password", Toast.LENGTH_SHORT).show();
@@ -104,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
             jsonObject.put("email", email);
             jsonObject.put("password", password);
             RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
-            String url = "https://viet-travel-development.herokuapp.com/api/user/register/";
+            String url = "http://54.169.31.141:8080/api/user/register/";
             JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
                 sending = false;
                 try {
@@ -127,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }, error -> {
+                sending = false;
                 error.printStackTrace();
                 Toast.makeText(RegisterActivity.this, "Network error", Toast.LENGTH_SHORT).show();
             });

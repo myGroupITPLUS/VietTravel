@@ -6,31 +6,20 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-
-import okhttp3.internal.http.HttpMethod;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -56,8 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initMapping() {
-        inputEmail = findViewById(R.id.inputEmail);
-        inputPassword = findViewById(R.id.inputPassword);
+        inputEmail = findViewById(R.id.inputOldPassword);
+        inputPassword = findViewById(R.id.inputNewPassword);
         sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
     }
 
@@ -65,6 +54,11 @@ public class LoginActivity extends AppCompatActivity {
     public void handleClickChangeToRegister(View v) {
         startActivityForResult(new Intent(LoginActivity.this, RegisterActivity.class), REQUEST_CODE); ;
     }
+
+    public void handleClickChangeToForgotPassword(View v) {
+        startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)); ;
+    }
+
 
     public void finishWithResult (boolean result) {
         Intent data = new Intent();
@@ -95,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             jsonObject.put("email", email);
             jsonObject.put("password", password);
             RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-            String url = "https://viet-travel-development.herokuapp.com/api/user/login/";
+            String url = "http://54.169.31.141:8080/api/user/login/";
             JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
                 sending = false;
                 try {
@@ -118,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }, error -> {
+                sending = false;
                 error.printStackTrace();
                 Toast.makeText(LoginActivity.this, "Network error", Toast.LENGTH_SHORT).show();
             });

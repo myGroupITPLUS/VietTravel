@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
     <LinearLayout
         android:paddingLeft="20dp"
         android:paddingRight="10dp"
@@ -36,13 +37,49 @@
                 android:text="Đăng ký để nhận được ưu đãi từ VietTravel"
                 android:layout_height="wrap_content">
             </TextView>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Đăng Ký"
-                android:id="@+id/btnDangKy"></Button>
+                android:text="Đăng Nhập"
+                android:id="@+id/btnLogin" />
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/spaceChangePassword"
+        android:paddingTop="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/nen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:paddingRight="5dp"
+                android:paddingTop="2dp"
+                android:src="@drawable/ic_key_dark"
+                android:layout_width="40dp"
+                android:layout_height="40dp">
+            </ImageView>
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Đổi mật khẩu"
+                android:onClick="handleChangeActivityChangePassword"
+                android:textColor="@color/red"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
     <LinearLayout
         android:paddingTop="50dp"
         android:paddingLeft="20dp"
@@ -67,14 +104,11 @@
                 android:id="@+id/btn_nhanthongbao"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
+                android:textAlignment="center"
                 android:text="Nhận thông báo"
                 android:textColor="@color/red"
                 android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -101,11 +135,12 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
+                android:textAlignment="center"
                 android:paddingTop="5dp"
                 android:text="Thay đổi ngôn ngữ"
                 android:textColor="@color/red"
                 android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
@@ -225,13 +260,13 @@
                 android:id="@+id/btn_gioithieu"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="70dp"
                 android:paddingTop="5dp"
+                android:textAlignment="center"
                 android:text="Trang Chủ"
                 android:textColor="@color/red"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:ignore="InvalidId"></Button>
+                tools:ignore="InvalidId" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -248,12 +283,11 @@
                 android:id="@+id/btn_vanphongdaidien"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp"
+                android:textAlignment="center"
                 android:text="Văn phòng đại diện"
                 android:textColor="@color/red"
                 android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout></ScrollView>

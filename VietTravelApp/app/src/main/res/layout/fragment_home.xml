@@ -22,12 +22,13 @@
                 android:text="VietTravel chào bạn,\nKế hoạch hôm nay của bạn là gì?"
                 android:textColor="@color/white">
             </TextView>
+
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_weight="20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login"></Button>
+                android:text="Đăng nhập" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="300dp"

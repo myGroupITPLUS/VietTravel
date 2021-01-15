@@ -17,6 +17,8 @@
         android:theme="@style/Theme.VietTravelApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".Activity.ForgotPasswordActivity"></activity>
+        <activity android:name=".Activity.ChangePasswordActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
