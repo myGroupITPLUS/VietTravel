@@ -66,7 +66,7 @@
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="235dp"
+            android:layout_height="match_parent"
             android:padding="10dp"
             android:orientation="vertical">
             <TextView
@@ -83,7 +83,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="155dp"
+            android:layout_height="match_parent"
             android:padding="3dp"
             android:layout_marginTop="3dp"
             android:background="@color/blue"
@@ -98,12 +98,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
-                android:layout_height="130dp">
+                android:layout_height="match_parent">
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="50dp"
             android:padding="10dp"

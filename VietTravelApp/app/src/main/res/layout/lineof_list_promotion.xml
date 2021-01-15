@@ -48,47 +48,34 @@
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-        <FrameLayout
-            android:paddingTop="10dp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/btn_bg2">
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_bg2"
+            android:orientation="vertical">
+
             <TextView
-                android:paddingTop="10dp"
                 android:id="@+id/ttvNameTour"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="80dp"
                 android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
                 android:text="Ten cua tour "
                 android:textColor="@color/black"
-                android:textSize="15dp"
-                android:textStyle="bold"></TextView>
-            <TextView
-                android:paddingTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="20dp"
-                android:layout_marginLeft="10dp"
-                android:text="\n- - - - - - - - - - - - - - - - - - - - - - - - - -"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:paddingBottom="100dp"
+                android:textSize="17sp"
                 android:textStyle="bold"></TextView>
             <LinearLayout
-                android:layout_gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
+                    android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
@@ -98,7 +85,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
                         android:id="@+id/ttvMaTour"
                         android:text="Ma Tour: "
@@ -106,8 +93,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
-                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_height="50dp"
                     android:orientation="horizontal">
                     <ImageView
                         android:layout_width="30dp"
@@ -116,7 +103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
                         android:id="@+id/ttvThoiGianDi"
                         android:text="Thoi Gian Di "
@@ -124,14 +111,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:text=" - "
                         android:textColor="@color/black"></TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:id="@+id/ttvThoiGianVe"
                         android:text="Thoi Gian Ve "
@@ -139,8 +126,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
-                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_height="80dp"
                     android:orientation="horizontal">
                     <ImageView
                         android:layout_width="30dp"
@@ -149,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
                         android:id="@+id/ttvDiemDi"
                         android:text="Diem Di"
@@ -157,21 +144,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:text=" - "
                         android:textColor="@color/black"></TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:id="@+id/ttvDiemDen"
                         android:text="Diem Den"
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
             </LinearLayout>
-        </FrameLayout>
+        </LinearLayout>
     </LinearLayout>
     </LinearLayout>
     </androidx.cardview.widget.CardView>

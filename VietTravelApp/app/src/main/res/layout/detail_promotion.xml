@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="false">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
     android:background="@color/nen"
     android:orientation="vertical"
@@ -39,123 +39,123 @@
     <LinearLayout
         android:paddingTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
         <FrameLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="match_parent"
             android:background="@drawable/btn_bg2">
             <TextView
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:id="@+id/TXTNamePromotion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="80dp"
                 android:layout_marginLeft="10dp"
                 android:text="Ten cua tour "
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"></TextView>
-            <TextView
-                android:paddingTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="20dp"
-                android:layout_marginLeft="10dp"
-                android:text="\n- - - - - - - - - - - - - - - - - - - - - - - - - -"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:paddingBottom="80dp"
+                android:textSize="16sp"
                 android:textStyle="bold"></TextView>
             <LinearLayout
-                android:layout_gravity="bottom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="70dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/code"></ImageView>
+
                     <TextView
+                        android:id="@+id/TXTMaPromotion"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/TXTMaPromotion"
                         android:text="Ma Tour: "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/calender"></ImageView>
+
                     <TextView
+                        android:id="@+id/TXTThoiGianDi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/TXTThoiGianDi"
                         android:text="Thoi Gian Di"
                         android:textColor="@color/black"></TextView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:text="-"
                         android:textColor="@color/black"></TextView>
+
                     <TextView
+                        android:id="@+id/TXTThoiGianDen"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/TXTThoiGianDen"
                         android:text="Thoi Gian Den"
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingLeft="50dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp">
+
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/locate"></ImageView>
+
                     <TextView
+                        android:id="@+id/TXTDiemDi"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="5dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/TXTDiemDi"
                         android:text="Diem Di"
                         android:textColor="@color/black"></TextView>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
                         android:text="-"
                         android:textColor="@color/black"></TextView>
+
                     <TextView
+                        android:id="@+id/TXTDiemDen"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingLeft="20dp"
+                        android:paddingLeft="3dp"
                         android:paddingTop="5dp"
-                        android:id="@+id/TXTDiemDen"
                         android:text="Diem Den "
                         android:textColor="@color/black"></TextView>
                 </LinearLayout>
@@ -191,7 +191,7 @@
     <LinearLayout
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -206,8 +206,8 @@
         </TextView>
         <FrameLayout
             android:background="@drawable/btn_bg2"
-            android:layout_width="360dp"
-            android:layout_height="200dp"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="10dp"
             android:paddingRight="30dp"
