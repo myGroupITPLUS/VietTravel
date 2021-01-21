@@ -41,7 +41,7 @@ public class PromotionDetailActivity extends AppCompatActivity {
     TextView txtvDiemDen;
     TextView txtvGiaTour;
     TextView txtvMota;
-    Button btnDatTour;
+    Button btnDatPromotion;
     SharedPreferences sharedPreferences;
     ActionBar toolbar;
 
@@ -52,7 +52,7 @@ public class PromotionDetailActivity extends AppCompatActivity {
         setContentView(R.layout.detail_promotion);
         mapping();
         init();
-        btnDatTour.setOnClickListener(new View.OnClickListener() {
+        btnDatPromotion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
@@ -61,9 +61,9 @@ public class PromotionDetailActivity extends AppCompatActivity {
                     startActivity(new Intent(PromotionDetailActivity.this,RegisterActivity.class));
                 }else{
                     Intent intent1 = getIntent();
-                    Promotion promotion = (Promotion) intent1.getSerializableExtra("promotionDetail");
+                    Promotion promotion = (Promotion) intent1.getSerializableExtra("tourDetail");
                     Intent intent2 = new Intent(PromotionDetailActivity.this, DatTourActivity.class);
-                    intent2.putExtra("promotionDetail",(Serializable) promotion);
+                    intent2.putExtra("tourDetail",(Serializable) promotion);
                     startActivity(intent2);
                 }
             }
@@ -115,6 +115,6 @@ public class PromotionDetailActivity extends AppCompatActivity {
         txtvDiemDen = findViewById(R.id.TXTDiemDen);
         txtvGiaTour = findViewById(R.id.TXTGiaTour);
         txtvMota = findViewById(R.id.TXTMota);
-        btnDatTour = findViewById(R.id.btnDatPromotion);
+        btnDatPromotion = findViewById(R.id.btnDatPromotion);
     }
 }
