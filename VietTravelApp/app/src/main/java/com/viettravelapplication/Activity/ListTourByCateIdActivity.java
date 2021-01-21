@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.Adapter.LineListTourAdapter;
 import com.viettravelapplication.Adapter.TourAdapter;
 import com.viettravelapplication.Model.Category;
+import com.viettravelapplication.Model.Promotion;
 import com.viettravelapplication.Model.Tour;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.StringUtil;
@@ -43,6 +44,7 @@ public class ListTourByCateIdActivity extends AppCompatActivity {
     LineListTourAdapter lineListTourAdapter;
     Toolbar tbTourList;
     String title = null;
+    int categoryId;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +54,17 @@ public class ListTourByCateIdActivity extends AppCompatActivity {
     }
 
     private void getAllTourByCategoryId(int id) {
+        categoryId = 0;
         tourList = new ArrayList<>();
+        Intent intent = getIntent();
+        Category category = (Category) intent.getSerializableExtra("categoryDetail");
+        categoryId = category.getId();
+        String API_GET_TOUR_BY_CATEGORY_ID = StringUtil.API_GET_TOUR_BY_CATEGORY_ID+id+"/";
         lineListTourAdapter = new LineListTourAdapter(ListTourByCateIdActivity.this, R.layout.lineof_list_tours, tourList);
         rcvTour.setAdapter(lineListTourAdapter);
         rcvTour.setHasFixedSize(true);
         rcvTour.setLayoutManager(new LinearLayoutManager(this));
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, StringUtil.API_GET_ALL_TOUR, null,
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, API_GET_TOUR_BY_CATEGORY_ID, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
