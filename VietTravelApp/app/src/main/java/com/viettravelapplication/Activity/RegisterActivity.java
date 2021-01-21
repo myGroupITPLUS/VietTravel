@@ -19,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.EmailUtil;
+import com.viettravelapplication.Util.StringUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -114,8 +115,8 @@ public class RegisterActivity extends AppCompatActivity {
             jsonObject.put("email", email);
             jsonObject.put("password", password);
             RequestQueue requestQueue = Volley.newRequestQueue(RegisterActivity.this);
-            String url = "http://54.169.31.141:8080/api/user/register/";
-            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
+            //String url = "http://54.169.31.141:8080/api/user/register/";
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, StringUtil.API_REGISTER, jsonObject, response -> {
                 sending = false;
                 try {
                     boolean success = response.getBoolean("success");

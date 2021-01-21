@@ -15,6 +15,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.EmailUtil;
+import com.viettravelapplication.Util.StringUtil;
 
 import org.json.JSONException;
 
@@ -48,8 +49,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         if (!sending) {
             sending = true;
             RequestQueue requestQueue = Volley.newRequestQueue(ForgotPasswordActivity.this);
-            String url = "https://viet-travel-development.herokuapp.com/api/user/forgot-password/?email=%s";
-            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, String.format(url, email), null, response -> {
+            //String url = "https://viet-travel-development.herokuapp.com/api/user/forgot-password/?email=%s";
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, String.format(StringUtil.API_FORGOT_PASS, email), null, response -> {
                 sending = false;
                 try {
                     Toast.makeText(ForgotPasswordActivity.this, response.getString("message"), Toast.LENGTH_SHORT).show();

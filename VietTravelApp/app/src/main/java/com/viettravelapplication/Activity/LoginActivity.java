@@ -17,6 +17,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
+import com.viettravelapplication.Util.StringUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -89,8 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             jsonObject.put("email", email);
             jsonObject.put("password", password);
             RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
-            String url = "http://54.169.31.141:8080/api/user/login/";
-            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
+            //String url = "http://54.169.31.141:8080/api/user/login/";
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, StringUtil.API_LOGIN, jsonObject, response -> {
                 sending = false;
                 try {
                     boolean success = response.getBoolean("success");

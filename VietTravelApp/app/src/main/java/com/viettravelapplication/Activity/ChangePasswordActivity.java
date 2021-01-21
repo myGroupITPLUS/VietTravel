@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.viettravelapplication.R;
 import com.viettravelapplication.Util.EmailUtil;
+import com.viettravelapplication.Util.StringUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,8 +73,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
             jsonObject.put("oldPassword", oldPassword);
             jsonObject.put("newPassword", newPassword);
             RequestQueue requestQueue = Volley.newRequestQueue(ChangePasswordActivity.this);
-            String url = "https://viet-travel-development.herokuapp.com/api/user/change-password/";
-            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, response -> {
+            //String url = "https://viet-travel-development.herokuapp.com/api/user/change-password/";
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, StringUtil.API_CHANGE_PASS, jsonObject, response -> {
                 sending = false;
                 try {
                     Toast.makeText(ChangePasswordActivity.this, response.getString("message"), Toast.LENGTH_SHORT).show();

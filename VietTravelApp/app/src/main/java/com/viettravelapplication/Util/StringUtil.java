@@ -10,6 +10,8 @@ public class StringUtil {
     public static final String API_GET_ALL_USER = HOST+"api/user/";
     public static final String API_LOGIN = HOST+"api/user/login/";
     public static final String API_REGISTER = HOST+"api/user/register/";
+    public static final String API_CHANGE_PASS = HOST+"/api/user/change-password/";
+    public static final String API_FORGOT_PASS = HOST+"/api/user/forgot-password/?email=%s";
     public static final String LOAD_IMAGES = HOST+"api/images/";
     public static final String API_GET_TOUR_BY_CATEGORY_ID = HOST+"api/tour/";
     public static final String API_GET_ALL_TIP = HOST+"api/tip/";
