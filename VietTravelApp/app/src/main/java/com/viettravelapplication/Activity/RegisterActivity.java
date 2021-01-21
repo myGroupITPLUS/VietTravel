@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputPassword;
     EditText inputConfirmPassword;
     boolean sending = false;
+    TextView alreadyHaveAccount;
     SharedPreferences sharedPreferences;
 
     public final int CODE_REGISTER = 23;
@@ -41,6 +43,12 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initMapping();
+        alreadyHaveAccount.setOnClickListener(new View.OnClickListener(){
+            public  void onClick(View v){
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initMapping() {
@@ -48,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         inputEmail = findViewById(R.id.inputOldPassword);
         inputPassword = findViewById(R.id.inputNewPassword);
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
+        alreadyHaveAccount = findViewById(R.id.alreadyHaveAccount);
         sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
     }
 
