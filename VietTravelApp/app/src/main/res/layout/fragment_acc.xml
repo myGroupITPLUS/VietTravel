@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="false">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="130dp"
+                android:scaleType="fitXY"
+                android:layout_height="130dp"
+                android:src="@drawable/logo"></ImageView>
+            <LinearLayout
+                android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Đăng ký để nhận được ưu đãi từ VietTravel"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng Nhập"
+                    android:id="@+id/btnLogin" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/spaceChangePassword"
+            android:paddingTop="50dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:visibility="visible"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:src="@drawable/ic_key_dark"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btnChangePassword"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Đổi mật khẩu"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="50dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:src="@drawable/noti"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btn_nhanthongbao"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Nhận thông báo"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingRight="5dp"
+                    android:src="@drawable/revlanguage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btn_thaydoingonngu"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:textAlignment="center"
+                    android:paddingTop="5dp"
+                    android:text="Thay đổi ngôn ngữ"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="50dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/headphone"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/trungtamhotro"
+                        android:paddingLeft="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Trung tâm hỗ trợ"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"></TextView>
+                    <TextView
+                        android:paddingLeft="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Từ 08h00 - 23h00 hàng ngày"
+                        android:textSize="10sp"
+                        android:textColor="@color/black"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:src="@drawable/opinion"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/danhgia"
+                    android:paddingLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Đánh giá về Ứng dụng"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:paddingTop="5dp"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@color/nen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:src="@drawable/feedback"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+                <TextView
+                    android:id="@+id/phanhoi"
+                    android:paddingLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Phản hồi về chuyến đi"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:paddingTop="5dp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="80dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingLeft="2dp"
+                    android:src="@drawable/feedback"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btn_trangchu"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textAlignment="center"
+                    android:text="Trang Chủ"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="InvalidId" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/location"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+                </ImageView>
+
+                <Button
+                    android:id="@+id/btn_vanphongdaidien"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Văn phòng đại diện"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout></ScrollView>

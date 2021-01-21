@@ -83,6 +83,8 @@ public class AccActivity extends AppCompatActivity {
                 Toast.makeText(AccActivity.this, "Chưa update tính năng này", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 
     private void loadFragment(Fragment fragment) {
@@ -156,7 +158,7 @@ public class AccActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();
         Intent data = new Intent();
         setResult(CODE_LOGIN, data);
         finish();
