@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initMapping() {
-        inputEmail = findViewById(R.id.inputOldPassword);
+        inputEmail = findViewById(R.id.inputEmail);
         inputPassword = findViewById(R.id.inputNewPassword);
         sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
     }

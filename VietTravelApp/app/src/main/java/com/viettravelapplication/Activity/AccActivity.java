@@ -151,6 +151,7 @@ public class AccActivity extends AppCompatActivity {
         editor.apply();
         btnLogin.setText("Đăng Nhập");
         btnLogin.setOnClickListener(this::handleOpenLogin);
+        spaceChangePassword.setVisibility(View.GONE);
     }
 
 }
