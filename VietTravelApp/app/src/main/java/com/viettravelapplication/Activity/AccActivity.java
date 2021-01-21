@@ -154,4 +154,11 @@ public class AccActivity extends AppCompatActivity {
         spaceChangePassword.setVisibility(View.GONE);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent data = new Intent();
+        setResult(CODE_LOGIN, data);
+        finish();
+    }
 }

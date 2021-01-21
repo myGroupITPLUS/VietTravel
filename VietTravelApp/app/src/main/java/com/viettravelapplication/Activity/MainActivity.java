@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView navigation;
     ActionBar toolbar;
+    Fragment lastFragment;
+
+    public static int REQ_CODE = 222;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_account:
                     toolbar.setTitle("Tài khoản");
                     Intent intent = new Intent(MainActivity.this, AccActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, REQ_CODE);
                     return true;
                 case R.id.nav_aboutus:
                     toolbar.setTitle("Giới Thiệu");
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     };
     private void loadFragment(Fragment fragment) {
         // load Fragment
+        lastFragment = fragment;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container, fragment);
         transaction.addToBackStack(null);
@@ -81,5 +85,14 @@ public class MainActivity extends AppCompatActivity {
     }
     private void mapping(){
         navigation= (BottomNavigationView) findViewById(R.id.navigation);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQ_CODE) {
+            loadFragment(lastFragment);
+        }
     }
 }
