@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,11 +61,13 @@ public class PromotionDetailActivity extends AppCompatActivity {
                 if (id == -1){
                     startActivity(new Intent(PromotionDetailActivity.this,RegisterActivity.class));
                 }else{
-                    Intent intent1 = getIntent();
-                    Promotion promotion = (Promotion) intent1.getSerializableExtra("tourDetail");
-                    Intent intent2 = new Intent(PromotionDetailActivity.this, DatTourActivity.class);
-                    intent2.putExtra("tourDetail",(Serializable) promotion);
-                    startActivity(intent2);
+//                    System.out.println("Chạy tới đây rôi");
+                    Intent intent2 = getIntent();
+                    Tour tour = (Tour) intent2.getSerializableExtra("promotionDetail");
+//                    System.out.println("Chạy tới đây rồi heng");
+                    Intent intent3 = new Intent(PromotionDetailActivity.this, DatTourActivity.class);
+                    intent3.putExtra("tourDetail",(Serializable) tour);
+                    startActivity(intent3);
                 }
             }
         });

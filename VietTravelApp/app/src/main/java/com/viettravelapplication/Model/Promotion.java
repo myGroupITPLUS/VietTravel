@@ -12,8 +12,7 @@ public class Promotion implements Serializable {
     private String timedi;
     private String timeve;
     private String descriptions;
-    private String image;
-    private String sale;
+    private String images;
     private double price;
 
     public Promotion(int categoryid, int promotionid, String nametour, String diemdi, String diemden, String timedi, String timeve, String descriptions, String sale, String images, float price) {
@@ -25,8 +24,7 @@ public class Promotion implements Serializable {
         this.timedi = timedi;
         this.timeve = timeve;
         this.descriptions = descriptions;
-        this.sale = sale;
-        this.image = images;
+        this.images = images;
         this.price = price;
     }
 
@@ -40,7 +38,7 @@ public class Promotion implements Serializable {
         this.timedi = timedi;
         this.timeve = timeve;
         this.descriptions = descriptions;
-        this.image = images;
+        this.images = images;
         this.price = price;
     }
 
@@ -126,11 +124,11 @@ public class Promotion implements Serializable {
     }
 
     public String getImage() {
-        return image;
+        return images;
     }
 
     public void setImage(String images) {
-        this.image = images;
+        this.images = images;
     }
 
     public double getPrice() {
@@ -140,15 +138,6 @@ public class Promotion implements Serializable {
     public void setPrice(float price) {
         this.price = price;
     }
-
-    public String getSale() {
-        return sale;
-    }
-
-    public void setSale(String sale) {
-        this.sale = sale;
-    }
-
     public void setPrice(double price) {
         this.price = price;
     }
@@ -165,8 +154,7 @@ public class Promotion implements Serializable {
                 ", timedi='" + timedi + '\'' +
                 ", timeve='" + timeve + '\'' +
                 ", descriptions='" + descriptions + '\'' +
-                ", images='" + image + '\'' +
-                ", sale='" + sale + '\'' +
+                ", images='" + images + '\'' +
                 ", price=" + price +
                 '}';
     }
