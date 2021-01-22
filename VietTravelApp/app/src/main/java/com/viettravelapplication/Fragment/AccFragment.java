@@ -17,16 +17,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.viettravelapplication.Activity.AccActivity;
 import com.viettravelapplication.Activity.ChangePasswordActivity;
 import com.viettravelapplication.Activity.LoginActivity;
-import com.viettravelapplication.Activity.MainActivity;
-import com.viettravelapplication.Fragment.AboutUsFragment;
 import com.viettravelapplication.Interface.ItemClickListener;
 import com.viettravelapplication.R;
 

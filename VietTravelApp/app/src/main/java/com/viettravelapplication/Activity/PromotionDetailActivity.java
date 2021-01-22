@@ -63,8 +63,8 @@ public class PromotionDetailActivity extends AppCompatActivity {
                 }else{
 //                    System.out.println("Chạy tới đây rôi");
                     Intent intent2 = getIntent();
-                    Tour tour = (Tour) intent2.getSerializableExtra("promotionDetail");
-//                    System.out.println("Chạy tới đây rồi heng");
+                    Promotion promotion = (Promotion) intent2.getSerializableExtra("promotionDetail");
+                    Tour tour = new Tour(promotion.getId(), promotion.getCategoryid(), promotion.getPromotionid(),promotion.getNametour(),promotion.getDiemdi(),promotion.getDiemden(),promotion.getTimedi(),promotion.getTimeve(),promotion.getDescriptions(),promotion.getImage(), (float) promotion.getPrice());
                     Intent intent3 = new Intent(PromotionDetailActivity.this, DatTourActivity.class);
                     intent3.putExtra("tourDetail",(Serializable) tour);
                     startActivity(intent3);
