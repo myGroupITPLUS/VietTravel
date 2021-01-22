@@ -83,28 +83,28 @@ public class RegisterActivity extends AppCompatActivity {
         String password = String.valueOf(inputPassword.getText());
         String confirmPassword = String.valueOf(inputConfirmPassword.getText());
         if (username.isEmpty()) {
-            Toast.makeText(RegisterActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Vui lòng nhập tên đăng nhập!", Toast.LENGTH_SHORT).show();
             return;
         }
         if (email.isEmpty()) {
-            Toast.makeText(RegisterActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
         }else {
             if (!EmailUtil.isValid(email)){
-                Toast.makeText(RegisterActivity.this, "Email invalidate", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "Email không hợp lệ!", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
         if (password.isEmpty()) {
-            Toast.makeText(RegisterActivity.this, "Please input password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT).show();
             return;
         }
         if (confirmPassword.isEmpty()) {
-            Toast.makeText(RegisterActivity.this, "Please input confirm password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Vui lòng xác nhận lại mật khẩu!", Toast.LENGTH_SHORT).show();
             return;
         }
         if (!confirmPassword.equals(password)) {
-            Toast.makeText(RegisterActivity.this, "Confirm password not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this, "Mật khẩu không khớp!", Toast.LENGTH_SHORT).show();
             return;
         }
         Toast.makeText(RegisterActivity.this, "Sending", Toast.LENGTH_SHORT).show();
@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     boolean success = response.getBoolean("success");
                     if (success) {
-                        Toast.makeText(RegisterActivity.this, "Register complete", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Đăng kí tài khoản thành công!", Toast.LENGTH_SHORT).show();
                         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
                         JSONObject user = response.getJSONObject("user");
                         editor.putInt("id", user.getInt("id"));

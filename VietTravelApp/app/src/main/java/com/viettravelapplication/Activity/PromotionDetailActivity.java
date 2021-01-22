@@ -59,7 +59,7 @@ public class PromotionDetailActivity extends AppCompatActivity {
                 sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
                 int id = sharedPreferences.getInt("id", -1);
                 if (id == -1){
-                    startActivity(new Intent(PromotionDetailActivity.this,RegisterActivity.class));
+                    startActivity(new Intent(PromotionDetailActivity.this,LoginActivity.class));
                 }else{
 //                    System.out.println("Chạy tới đây rôi");
                     Intent intent2 = getIntent();
