@@ -57,7 +57,6 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -89,7 +88,6 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -120,7 +118,6 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -153,7 +150,6 @@
             android:paddingRight="10dp">
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -186,7 +182,6 @@
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -211,7 +206,6 @@
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
-                android:background="@color/nen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -251,7 +245,7 @@
                     android:paddingBottom="2dp"
                     android:paddingRight="2dp"
                     android:paddingLeft="2dp"
-                    android:src="@drawable/feedback"
+                    android:src="@drawable/home"
                     android:layout_width="40dp"
                     android:layout_height="40dp">
                 </ImageView>

@@ -2,7 +2,6 @@ package com.viettravelapplication.Fragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -20,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -66,8 +67,9 @@ public class AccFragment extends Fragment {
         danhgia = view.findViewById(R.id.danhgia);
         phanhoi = view.findViewById(R.id.phanhoi);
         spaceChangePassword = view.findViewById(R.id.spaceChangePassword);
-        navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
-        toolbar = getActivity().getActionBar();
+        navigation = (BottomNavigationView) getActivity().findViewById(R.id.navigation);
+
+        toolbar = ((AppCompatActivity)getActivity()).getSupportActionBar();
 
 
         sharedPreferences = getActivity().getSharedPreferences("userProfile", MODE_PRIVATE);
@@ -79,7 +81,6 @@ public class AccFragment extends Fragment {
             btnLogin.setText("Đăng nhập");
             btnLogin.setOnClickListener(this::handleOpenLogin);
             spaceChangePassword.setVisibility(View.GONE);
-
         }else{
             btnLogin.setText("Đăng xuất");
             btnLogin.setOnClickListener(this::handleLogout);
@@ -89,7 +90,7 @@ public class AccFragment extends Fragment {
             public  void onClick(View v){
                 fragment = new HomeFragment();
                 loadFragment(fragment, R.id.nav_home);
-
+//                System.out.println(R.id.nav_home);
             }
         });
         btnThongBao.setOnClickListener(new View.OnClickListener(){
@@ -127,6 +128,28 @@ public class AccFragment extends Fragment {
         btnChangePassword.setOnClickListener(this::handleChangeActivityChangePassword);
         return view;
     }
+    private void loadFragment(Fragment fragment, int id) {
+        // load Fragment
+        Menu menu = navigation.getMenu();
+        MenuItem item = null;
+        for (int i = 0, size = menu.size(); i < size; i++) {
+            MenuItem tmpItem = menu.getItem(i);
+            if (tmpItem.getItemId() == id) {
+                item = tmpItem;
+                break;
+            }
+        }
+        if (item != null){
+            item.setChecked(true);
+            toolbar.setTitle(item.getTitle());
+        }
+
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
     public void openCalling(View view){
         configUser();
     }
@@ -157,30 +180,6 @@ public class AccFragment extends Fragment {
                 }
             }
         }
-
-    private void loadFragment(Fragment fragment, int id) {
-        // load Fragment
-
-        Menu menu = navigation.getMenu();
-        MenuItem item = null;
-        for (int i = 0, size = menu.size(); i < size; i++) {
-            MenuItem tmpItem = menu.getItem(i);
-            if (tmpItem.getItemId() == id) {
-                item = tmpItem;
-                break;
-            }
-        }
-        if (item != null){
-            item.setChecked(true);
-            toolbar.setTitle(item.getTitle());
-        }
-
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
-    }
-
     public void handleChangeActivityChangePassword(View view) {
         startActivity(new Intent(getActivity(), ChangePasswordActivity.class)); ;
     }
