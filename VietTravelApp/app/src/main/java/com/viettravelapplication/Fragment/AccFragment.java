@@ -1,9 +1,12 @@
 package com.viettravelapplication.Fragment;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -29,6 +34,7 @@ import com.viettravelapplication.R;
 import static android.content.Context.MODE_PRIVATE;
 
 public class AccFragment extends Fragment {
+    private static final int REQ_CODE_CALL_PHONE = 123 ;
     Button btnDangNhap, btnLogin, btnThongBao, btnThayDoiNgonNgu;
     TextView trungtamhotro, danhgia, phanhoi;
     Button btnTrangChu, btnVanPhongDaiDien, btnChangePassword;
@@ -104,8 +110,7 @@ public class AccFragment extends Fragment {
         });
         trungtamhotro.setOnClickListener(new View.OnClickListener(){
             public  void onClick(View v){
-                fragment = new AboutUsFragment();
-                loadFragment(fragment, R.id.nav_aboutus);
+                configUser();
             }
         });
         danhgia.setOnClickListener(new View.OnClickListener(){
@@ -122,6 +127,36 @@ public class AccFragment extends Fragment {
         btnChangePassword.setOnClickListener(this::handleChangeActivityChangePassword);
         return view;
     }
+    public void openCalling(View view){
+        configUser();
+    }
+    private void calling(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:18006688"));
+        startActivity(intent);
+    }
+    private void configUser(){
+        String permission_call_phone = Manifest.permission.CALL_PHONE;
+        if (ContextCompat.checkSelfPermission(getContext(), permission_call_phone) != PackageManager.PERMISSION_GRANTED){
+//            System.out.println("Đã chạy tới đây rồi");
+            //CHưa có quyền cần xin quyền người dùng
+            String[] permission = new String[]{Manifest.permission.CALL_PHONE};
+            ActivityCompat.requestPermissions(getActivity(), permission, REQ_CODE_CALL_PHONE);
+        }else {
+            //Có quyền mở thẳng luôn
+            System.out.println("Đã chạy tới đây rồi");
+            calling();
+        }
+    }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQ_CODE_CALL_PHONE){
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    calling();
+                }
+            }
+        }
 
     private void loadFragment(Fragment fragment, int id) {
         // load Fragment

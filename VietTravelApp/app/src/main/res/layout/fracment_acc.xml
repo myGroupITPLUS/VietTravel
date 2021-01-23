@@ -171,6 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+                    tools:ignore="OnClick"
                     android:text="Trung tâm hỗ trợ"
                     android:textSize="20sp"
                     android:textColor="@color/black"></TextView>
