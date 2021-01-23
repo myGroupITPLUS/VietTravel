@@ -76,11 +76,11 @@ public class LoginActivity extends AppCompatActivity {
         String email = String.valueOf(inputEmail.getText());
         String password = String.valueOf(inputPassword.getText());
         if (email.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Please input email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Vui lòng nhập email!", Toast.LENGTH_SHORT).show();
             return;
         }
         if (password.isEmpty()) {
-            Toast.makeText(LoginActivity.this, "Please input password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "Vui lòng nhập mật khẩu!", Toast.LENGTH_SHORT).show();
             return;
         }
         Toast.makeText(LoginActivity.this, "Sending", Toast.LENGTH_SHORT).show();
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     boolean success = response.getBoolean("success");
                     if (success) {
-                        Toast.makeText(LoginActivity.this, "Login complete", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_LONG).show();
                         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
                         JSONObject user = response.getJSONObject("user");
                         editor.putInt("id", user.getInt("id"));

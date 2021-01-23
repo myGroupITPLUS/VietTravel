@@ -55,7 +55,7 @@ public class TourDetailActivity extends AppCompatActivity {
                 sharedPreferences = getSharedPreferences("userProfile", MODE_PRIVATE);
                 int id = sharedPreferences.getInt("id", -1);
                 if (id == -1){
-                    startActivity(new Intent(TourDetailActivity.this,RegisterActivity.class));
+                    startActivity(new Intent(TourDetailActivity.this,LoginActivity.class));
                 }else{
                     Intent intent1 = getIntent();
                     Tour tour = (Tour) intent1.getSerializableExtra("tourDetail");

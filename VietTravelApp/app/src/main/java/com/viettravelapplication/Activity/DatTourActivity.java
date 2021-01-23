@@ -57,6 +57,12 @@ public class DatTourActivity extends AppCompatActivity {
                 }
             }
         });
+        btnHuytour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void datTour() throws JSONException {
